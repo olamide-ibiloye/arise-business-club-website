@@ -12,5 +12,4 @@ WORKDIR src
 
 # CMD npm run dev
 
-RUN npm install
-CMD npm run build && npm run start
+CMD npm install && npm run build && npm run start
