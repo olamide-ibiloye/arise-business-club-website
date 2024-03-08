@@ -16,7 +16,7 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content">
+    <footer className="footer p-4 lg:p-10 bg-base-200 text-base-content">
       <FooterNav title="Services">
         <a className="link link-hover">Branding</a>
         <a className="link link-hover">Design</a>
@@ -47,9 +47,11 @@ const Footer: React.FC = () => {
               <input
                 type="text"
                 placeholder="username@site.com"
-                className="input input-bordered join-item"
+                className="input input-md lg:input-lg input-bordered join-item"
               />
-              <button className="btn btn-primary join-item">Subscribe</button>
+              <button className="btn btn-primary btn-md lg:btn-lg join-item">
+                Subscribe
+              </button>
             </div>
           </fieldset>
         </FooterNav>

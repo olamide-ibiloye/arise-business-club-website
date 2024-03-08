@@ -11,7 +11,7 @@ const images = [
 ];
 
 const HomePage = () => (
-  <main className="flex min-h-screen flex-col items-center justify-between px-24">
+  <main className="flex min-h-screen flex-col items-center justify-between  px-2 lg:px-24">
     <div className="container mx-auto px-5 my-0">
       <AppBar />
 
@@ -43,8 +43,8 @@ const HomePage = () => (
       </section>
 
       <section>
-        <div className="my-15 mb-20">
-          <h2 className="mb-8 text-6xl md:text-6xl font-bold tracking-tighter leading-tight">
+        <div className="mt-20 pt-20">
+          <h2 className="mb-8 text-4xl lg:text-6xl leading-tight">
             Club Description
           </h2>
 
