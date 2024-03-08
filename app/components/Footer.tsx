@@ -47,9 +47,9 @@ const Footer: React.FC = () => {
               <input
                 type="text"
                 placeholder="username@site.com"
-                className="input input-md lg:input-lg input-bordered join-item"
+                className="input xs:input-xs sm:input-sm md:input-md lg:input-lg input-bordered join-item"
               />
-              <button className="btn btn-primary btn-md lg:btn-lg join-item">
+              <button className="btn btn-primary xs:btn-xs sm:btn:sm md:btn-md lg:btn-lg join-item">
                 Subscribe
               </button>
             </div>
