@@ -16,7 +16,7 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer p-4 lg:p-10 bg-base-200 text-base-content">
+    <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content">
       <FooterNav title="Services">
         <a className="link link-hover">Branding</a>
         <a className="link link-hover">Design</a>
@@ -39,19 +39,17 @@ const Footer: React.FC = () => {
 
       <form>
         <FooterNav title="Newsletter">
-          <fieldset className="form-control w-80">
+          <fieldset className="form-control">
             <label className="label">
               <span className="label-text">Enter your email address</span>
             </label>
-            <div className="join">
+            <div className="flex flex-col sm:flex-row">
               <input
                 type="text"
                 placeholder="username@site.com"
-                className="input xs:input-xs sm:input-sm md:input-md lg:input-lg input-bordered join-item"
+                className="input input-bordered mb-2 sm:mr-2"
               />
-              <button className="btn btn-primary xs:btn-xs sm:btn:sm md:btn-md lg:btn-lg join-item">
-                Subscribe
-              </button>
+              <button className="btn btn-accent">Subscribe</button>
             </div>
           </fieldset>
         </FooterNav>
