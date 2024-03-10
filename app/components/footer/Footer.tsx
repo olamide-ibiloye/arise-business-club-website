@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { services } from "../body/Services";
 
 interface FooterNavProps {
   title: string;
@@ -18,10 +19,12 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content">
       <FooterNav title="Services">
+        {services.map((service) => (
+          <a key={service.id} className="link link-hover">
+            {service.title}
+          </a>
+        ))}
         <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
       </FooterNav>
 
       <FooterNav title="Company">
@@ -49,7 +52,9 @@ const Footer: React.FC = () => {
                 placeholder="username@site.com"
                 className="input input-bordered mb-2 sm:mr-2"
               />
-              <button className="btn btn-accent">Subscribe</button>
+              <button className="btn bg-accent outline-none text-white">
+                Subscribe
+              </button>
             </div>
           </fieldset>
         </FooterNav>

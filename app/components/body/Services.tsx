@@ -1,7 +1,7 @@
 import React from "react";
 import Service from "./Service";
 
-const services = [
+export const services = [
   {
     id: "financial-education",
     title: "Financial Education",
