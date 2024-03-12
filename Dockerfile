@@ -21,7 +21,8 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copy the built app from the previous stage to the nginx html directory
-COPY --from=build /app/out /usr/share/nginx/html
+COPY --from=build /app/.next /usr/share/nginx/html
+
 
 # Expose port 80
 EXPOSE 80
