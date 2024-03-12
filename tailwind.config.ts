@@ -1,17 +1,14 @@
 import type { Config } from "tailwindcss";
 
-const ABC_THEME = {
-  mycolors: {
-    primary: "#ffffff",
-    secondary: "#ff0000",
-    accent: "#b49249",
-    neutral: "#fff3dd",
-    "base-100": "#ffffff",
-    info: "#00ffff",
-    success: "#00ff00",
-    warning: "#00ff00",
-    error: "#ff0000",
-  },
+const myTheme = {
+  primary: "#ffffff",
+  secondary: "#ff0000",
+  accent: "#b49249",
+  neutral: "#fff3dd",
+  info: "#00ffff",
+  success: "#00ff00",
+  warning: "#00ff00",
+  error: "#ff0000",
 };
 
 const config: Config = {
@@ -22,7 +19,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: ABC_THEME.mycolors,
+      colors: {
+        ...myTheme,
+      },
       spacing: {
         28: "7rem",
       },
@@ -46,7 +45,7 @@ const config: Config = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["light", "dark", "cupcake", "retro", "lofi", ABC_THEME.mycolors],
+    themes: ["light", "dark", "lofi"],
   },
 };
 

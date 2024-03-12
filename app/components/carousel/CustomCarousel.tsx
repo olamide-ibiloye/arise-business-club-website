@@ -25,18 +25,32 @@ const mobileImages = [
 ];
 
 const CustomCarousel = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
   const [carouselImages, setCarouselImages] = useState(images);
 
   useEffect(() => {
-    const handleResize = () => {
+    // Ensure code runs only in the browser
+    if (typeof window !== "undefined") {
       setWindowWidth(window.innerWidth);
+    }
+
+    const handleResize = () => {
+      // Ensure code runs only in the browser
+      if (typeof window !== "undefined") {
+        setWindowWidth(window.innerWidth);
+      }
     };
 
-    window.addEventListener("resize", handleResize);
+    // Add event listener only in the browser environment
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+    }
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      // Remove event listener only in the browser environment
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
 

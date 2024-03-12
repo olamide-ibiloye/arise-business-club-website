@@ -1,15 +1,29 @@
-FROM ubuntu:latest
+# Use the official Node.js image as the base image
+FROM node:latest AS build
 
-RUN apt update
-RUN apt-get -y update
-RUN apt-get -y install curl
-RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash -
-RUN apt-get install -y nodejs
-RUN apt update
+# Set the working directory
+WORKDIR /app
 
+# Copy package.json and package-lock.json to the working directory
+COPY package.json package-lock.json ./
 
-WORKDIR src
+# Install dependencies
+RUN npm install --production
 
-# CMD npm run dev
+# Copy the rest of the application code
+COPY . .
 
-CMD npm install && npm run build && npm run start
+# Build the Next.js app
+RUN npm run build
+
+# Use Nginx as the production server
+FROM nginx:alpine
+
+# Copy the built app from the previous stage to the nginx html directory
+COPY --from=build /app/out /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx when the container starts
+CMD ["nginx", "-g", "daemon off;"]

@@ -16,7 +16,7 @@ interface NavItem {
   subNavLinks?: SubNavItem[];
 }
 
-const navs: NavItem[] = [
+export const navs: NavItem[] = [
   { id: "about-us", name: "About Us", subNavs: false },
   {
     id: "services",

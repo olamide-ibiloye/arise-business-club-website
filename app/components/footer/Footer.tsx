@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
 import { services } from "../body/Services";
+import { navs } from "../appbar/AppBar";
+import BrandIcon from "../appbar/BrandIcon";
 
 interface FooterNavProps {
   title: string;
@@ -18,27 +20,31 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
 const Footer: React.FC = () => {
   return (
     <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content">
+      {/* <FooterNav title="">
+        <BrandIcon size={150} />
+      </FooterNav> */}
+
       <FooterNav title="Services">
         {services.map((service) => (
           <a key={service.id} className="link link-hover">
             {service.title}
           </a>
         ))}
-        <a className="link link-hover">Branding</a>
       </FooterNav>
 
       <FooterNav title="Company">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
+        {navs.map((nav) => (
+          <a key={nav.id} className="link link-hover">
+            {nav.name}
+          </a>
+        ))}
       </FooterNav>
 
-      <FooterNav title="Legal">
+      {/* <FooterNav title="Legal">
         <a className="link link-hover">Terms of use</a>
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
-      </FooterNav>
+      </FooterNav> */}
 
       <form>
         <FooterNav title="Newsletter">
