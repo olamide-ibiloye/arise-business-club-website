@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "tailwindcss/tailwind.css";
 import "./globals.css";
 import Meta from "./components/seo/Meta";
 import Providers from "./components/providers/Providers";
