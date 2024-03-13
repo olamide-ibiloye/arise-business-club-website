@@ -6,11 +6,10 @@ import Services from "./components/body/Services";
 import News from "./components/body/News";
 import Welcome from "./components/body/Welcome";
 import Description from "./components/body/Description";
+import Box from "./components/box/Box";
 
 const HomePage = () => (
-  <main className="flex min-h-screen flex-col items-center justify-between  px-5 lg:px-24">
-    <AppBar />
-
+  <Box>
     <CustomCarousel />
 
     <Welcome />
@@ -20,9 +19,7 @@ const HomePage = () => (
     <Services />
 
     <News />
-
-    <Footer />
-  </main>
+  </Box>
 );
 
 export default HomePage;

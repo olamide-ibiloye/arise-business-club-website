@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import { services } from "../body/Services";
 import { navs } from "../appbar/AppBar";
 import BrandIcon from "../appbar/BrandIcon";
+import Box from "../box/Box";
 
 interface FooterNavProps {
   title: string;
@@ -19,7 +20,7 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content">
+    <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content lg:max-w-7xl lg:w-full">
       {/* <FooterNav title="">
         <BrandIcon size={150} />
       </FooterNav> */}

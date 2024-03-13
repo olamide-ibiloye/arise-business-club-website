@@ -1,5 +1,6 @@
 import React from "react";
 import Service from "./Service";
+import Box from "../box/Box";
 
 export const services = [
   {

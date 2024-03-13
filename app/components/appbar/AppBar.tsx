@@ -3,6 +3,7 @@ import MenuIcon from "./MenuIcon";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import BrandIcon from "./BrandIcon";
+import Box from "../box/Box";
 
 interface SubNavItem {
   id: string;
@@ -41,7 +42,7 @@ export const navs: NavItem[] = [
 
 const AppBar = () => {
   return (
-    <div className="drawer z-50">
+    <Box classes="drawer z-50">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
@@ -54,7 +55,7 @@ const AppBar = () => {
         </div>
       </div>
       <Sidebar navs={navs} />
-    </div>
+    </Box>
   );
 };
 

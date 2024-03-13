@@ -1,8 +1,9 @@
 import React from "react";
+import Box from "../box/Box";
 
 const News = () => {
   return (
-    <div className="mt-8  mb-20 md:mb-28">
+    <div className="mt-8 mb-20 md:mb-28">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         News
       </h2>
