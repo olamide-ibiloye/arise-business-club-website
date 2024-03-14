@@ -3,6 +3,7 @@ import { services } from "../body/Services";
 import { navs } from "../appbar/AppBar";
 import BrandIcon from "../appbar/BrandIcon";
 import Box from "../box/Box";
+import Form from "../body/Form";
 
 interface FooterNavProps {
   title: string;
@@ -49,21 +50,7 @@ const Footer: React.FC = () => {
 
       <form>
         <FooterNav title="Newsletter">
-          <fieldset className="form-control">
-            <label className="label">
-              <span className="label-text">Enter your email address</span>
-            </label>
-            <div className="flex flex-col sm:flex-row">
-              <input
-                type="text"
-                placeholder="username@site.com"
-                className="input input-bordered mb-2 sm:mr-2"
-              />
-              <button className="btn bg-accent outline-none text-white">
-                Subscribe
-              </button>
-            </div>
-          </fieldset>
+          <Form title="Enter your email address" />
         </FooterNav>
       </form>
     </footer>

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
-import Box from "../box/Box";
 
 interface ImageItem {
   src: string;
@@ -64,7 +63,7 @@ const CustomCarousel = () => {
   }, [windowWidth]);
 
   return (
-    <Box>
+    <div>
       <Carousel
         autoplay
         dragging
@@ -79,7 +78,7 @@ const CustomCarousel = () => {
           </div>
         ))}
       </Carousel>
-    </Box>
+    </div>
   );
 };
 

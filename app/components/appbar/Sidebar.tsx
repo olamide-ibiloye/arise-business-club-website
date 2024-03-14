@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import DropDownIcon from "./DropDownIcon";
+import { ExpandMore } from "@mui/icons-material";
 
 interface SubNavItem {
   id: string;
@@ -16,9 +16,11 @@ interface NavItem {
 
 const Sidebar: React.FC<{ navs: NavItem[] }> = ({ navs }) => {
   const [activeNav, setActiveNav] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
 
   const toggleSubNav = (navId: string) => {
     setActiveNav(activeNav === navId ? null : navId);
+    setOpen(!open);
   };
 
   return (
@@ -34,7 +36,18 @@ const Sidebar: React.FC<{ navs: NavItem[] }> = ({ navs }) => {
             <a onClick={() => toggleSubNav(nav.id)}>
               <div className="flex">
                 <div className="flex-1">{nav.name}</div>
-                <div className="flex">{nav.subNavs && <DropDownIcon />}</div>
+                <div className="flex">
+                  {nav.subNavs && (
+                    <ExpandMore
+                      sx={{
+                        transform:
+                          activeNav === nav.id && open
+                            ? "rotate(180deg)"
+                            : undefined,
+                      }}
+                    />
+                  )}
+                </div>
               </div>
             </a>
             {nav.subNavs && activeNav === nav.id && (

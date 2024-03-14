@@ -1,12 +1,14 @@
 import React from "react";
-import Footer from "./components/footer/Footer";
-import AppBar from "./components/appbar/AppBar";
 import CustomCarousel from "./components/carousel/CustomCarousel";
 import Services from "./components/body/Services";
 import News from "./components/body/News";
 import Welcome from "./components/body/Welcome";
 import Description from "./components/body/Description";
 import Box from "./components/box/Box";
+import Contact from "./components/body/Contact";
+import JoinNow from "./components/body/JoinNow";
+import FAQs from "./components/body/FAQs";
+import PopUp from "./components/body/PopUp";
 
 const HomePage = () => (
   <Box>
@@ -19,6 +21,14 @@ const HomePage = () => (
     <Services />
 
     <News />
+
+    {/* <Contact /> */}
+
+    {/* <JoinNow /> */}
+
+    {/* <FAQs /> */}
+
+    {/* <PopUp /> */}
   </Box>
 );
 
