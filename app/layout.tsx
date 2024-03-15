@@ -1,9 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Meta from "./components/seo/Meta";
-import Providers from "./components/providers/Providers";
-import AppBar from "./components/appbar/AppBar";
-import Footer from "./components/footer/Footer";
+import Providers from "../components/providers/Providers";
+import AppBar from "../components/appbar/AppBar";
+import Footer from "../components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +13,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="lofi" suppressHydrationWarning>
-      <Meta />
       <body className={inter.className}>
         <Providers>
           <main className="flex min-h-screen flex-col items-center justify-between px-5">

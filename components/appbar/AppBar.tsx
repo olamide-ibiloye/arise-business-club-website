@@ -3,7 +3,7 @@ import MenuIcon from "./MenuIcon";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import BrandIcon from "./BrandIcon";
-import Box from "../box/Box";
+import Box from "../ui/Box";
 
 interface SubNavItem {
   id: string;

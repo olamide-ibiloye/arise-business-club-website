@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { services } from "../body/Services";
 import { navs } from "../appbar/AppBar";
 import BrandIcon from "../appbar/BrandIcon";
-import Box from "../box/Box";
+import Box from "../ui/Box";
 import Form from "../body/Form";
 
 interface FooterNavProps {
