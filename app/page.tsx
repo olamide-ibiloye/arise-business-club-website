@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import CustomCarousel from "./components/carousel/CustomCarousel";
 import Services from "./components/body/Services";
 import News from "./components/body/News";
@@ -9,6 +10,11 @@ import Contact from "./components/body/Contact";
 import JoinNow from "./components/body/JoinNow";
 import FAQs from "./components/body/FAQs";
 import PopUp from "./components/body/PopUp";
+
+export const metadata: Metadata = {
+  title: "Arise Business Club",
+  description: "Welcome to Arise Business Club",
+};
 
 const HomePage = () => (
   <Box>
