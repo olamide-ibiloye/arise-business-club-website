@@ -47,7 +47,7 @@ const AppBar = () => {
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="w-full navbar px-0 mx-0">
-          <BrandIcon />
+          <BrandIcon size={80} />
 
           <Navbar navs={navs} />
 

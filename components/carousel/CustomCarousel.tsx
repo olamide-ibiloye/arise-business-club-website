@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
-import { AspectRatio } from "../ui/AspectRatio";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 
 interface ImageItem {
   src: string;
@@ -55,7 +55,7 @@ const CustomCarousel = () => {
               src={image.src}
               alt={image.alt}
               fill
-              className="rounded-md object-cover"
+              className="object-cover"
             />
           </AspectRatio>
         ))}

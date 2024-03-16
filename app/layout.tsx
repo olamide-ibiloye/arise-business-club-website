@@ -20,13 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="lofi" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          <main className="flex min-h-screen flex-col items-center justify-between px-5">
-            <AppBar />
-            {children}
-            <Footer />
-          </main>
-        </Providers>
+        {/* <Providers> */}
+        <main className="flex min-h-screen flex-col items-center justify-between px-5">
+          <AppBar />
+          {children}
+          <Footer />
+        </main>
+        {/* </Providers> */}
       </body>
     </html>
   );

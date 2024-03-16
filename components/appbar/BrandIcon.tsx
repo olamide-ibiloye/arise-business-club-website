@@ -3,7 +3,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-const BrandIcon = ({ size = 100 }) => {
+const BrandIcon = ({ size = 70 }) => {
   const { resolvedTheme } = useTheme();
   let src;
 
@@ -21,9 +21,9 @@ const BrandIcon = ({ size = 100 }) => {
   }
 
   return (
-    <div className="flex-1 px-0 mx-0" style={{ height: 70, width: 70 }}>
+    <div className="flex-1 px-0 mx-0 " style={{ height: size, width: size }}>
       <Image
-        src={src}
+        src="/logo.png"
         alt="Arise Business Club Logo"
         width={size}
         height={size}
