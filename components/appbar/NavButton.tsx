@@ -15,7 +15,7 @@ const NavButton: React.FC<NavButtonProps> = ({
 }) => {
   return (
     <div
-      className="btn m-1 bg-transparent border-transparent shadow-none hover:shadow"
+      className="ml-5 p-3 cursor-pointer bg-transparent hover:bg-base-200"
       onMouseOver={handleHover}
       onMouseLeave={handleExit}
     >

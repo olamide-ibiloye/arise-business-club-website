@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({ navs }) => {
                   />
                 </NavButton>
                 <ul
-                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  className="dropdown-content z-[1] menu p-2 shadow bg-base-200 w-52"
                   onMouseOver={handleHover}
                   onMouseLeave={handleExit}
                 >
