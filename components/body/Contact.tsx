@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="mt-10 lg:mt-20 mb-20 md:mb-28">
+    <section className="mt-10 lg:mt-20 mb-20 md:mb-28">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         Contact Us
       </h2>
@@ -18,7 +18,7 @@ const Contact = () => {
 
         <p>Fill out our inquiry form [Link to Inquiry Form]</p>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -36,7 +36,7 @@ const CustomCarousel = () => {
   }, []);
 
   return (
-    <div>
+    <section>
       <Carousel
         autoplay
         dragging
@@ -60,7 +60,7 @@ const CustomCarousel = () => {
           </AspectRatio>
         ))}
       </Carousel>
-    </div>
+    </section>
   );
 };
 

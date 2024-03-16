@@ -2,7 +2,7 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className=" mt-10 lg:mt-20 mb-5 md:mb-8 pt-5 pb-8 text-center">
+    <section className=" mt-10 lg:mt-20 mb-5 md:mb-8 pt-5 pb-8 text-center">
       <h1 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6">
         Welcome to Arise Business Club
       </h1>
@@ -17,7 +17,7 @@ const Welcome = () => {
           Club where Making a difference starts with you!
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

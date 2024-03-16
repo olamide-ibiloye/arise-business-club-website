@@ -2,7 +2,7 @@ import React from "react";
 
 const JoinNow = () => {
   return (
-    <div className="mt-10 lg:mt-20 mb-20 md:mb-28">
+    <section className="mt-10 lg:mt-20 mb-20 md:mb-28">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         Join Now
       </h2>
@@ -17,7 +17,7 @@ const JoinNow = () => {
 
         <p>Sign up now and start your journey towards financial success!</p>
       </div>
-    </div>
+    </section>
   );
 };
 

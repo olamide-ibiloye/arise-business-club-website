@@ -27,7 +27,7 @@ export const services = [
 
 const Services = () => {
   return (
-    <div className="mt-10 lg:mt-20 pt-20">
+    <section className="mt-10 lg:mt-20 pt-20">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         Services
       </h2>
@@ -46,7 +46,7 @@ const Services = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const News = () => {
   return (
-    <div className="mt-10 lg:mt-20 mb-20 md:mb-28">
+    <section className="mt-10 lg:mt-20 mb-20 md:mb-28">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         News
       </h2>
@@ -20,7 +20,7 @@ const News = () => {
           make informed investment decisions.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

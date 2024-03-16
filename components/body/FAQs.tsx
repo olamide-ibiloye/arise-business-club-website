@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQs = () => {
   return (
-    <div className="mt-10 lg:mt-20 mb-20 md:mb-28">
+    <section className="mt-10 lg:mt-20 mb-20 md:mb-28">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         FAQs
       </h2>
@@ -15,7 +15,7 @@ const FAQs = () => {
           membership, services, investment opportunities, and more.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

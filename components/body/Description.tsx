@@ -2,7 +2,7 @@ import React from "react";
 
 const Description = () => {
   return (
-    <div className="mt-10 lg:mt-20 pt-10 md:pt-20 bg-base-200 p-5 md:p-12 rounded-lg">
+    <section className="mt-10 lg:mt-20 pt-10 md:pt-20 bg-base-200 p-5 md:p-12 rounded-lg">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         Club Description
       </h2>
@@ -42,7 +42,7 @@ const Description = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
