@@ -21,7 +21,7 @@ const HomePage = () => (
 
     <News />
 
-    {/* <Contact /> */}
+    <Contact />
 
     {/* <JoinNow /> */}
 
