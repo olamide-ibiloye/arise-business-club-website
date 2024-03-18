@@ -15,11 +15,11 @@ interface NavItem {
   subNavLinks?: SubNavItem[];
 }
 
-interface NavbarProps {
+interface NavElementsProps {
   navs: NavItem[];
 }
 
-const Navbar: React.FC<NavbarProps> = ({ navs }) => {
+const NavElements: React.FC<NavElementsProps> = ({ navs }) => {
   const [inFocus, setInFocus] = useState(false);
 
   const handleHover = () => {
@@ -48,14 +48,12 @@ const Navbar: React.FC<NavbarProps> = ({ navs }) => {
                   />
                 </NavButton>
                 <ul
-                  className="dropdown-content z-[1] menu p-2 shadow bg-base-200 w-52"
+                  className="dropdown-content z-[1] menu p-2 shadow bg-primary w-52"
                   onMouseOver={handleHover}
                   onMouseLeave={handleExit}
                 >
                   {nav.subNavLinks.map((subNav) => (
-                    <li key={subNav.id}>
-                      <a>{subNav.name}</a>
-                    </li>
+                    <NavButton key={subNav.id} name={subNav.name} />
                   ))}
                 </ul>
               </div>
@@ -69,4 +67,4 @@ const Navbar: React.FC<NavbarProps> = ({ navs }) => {
   );
 };
 
-export default Navbar;
+export default NavElements;

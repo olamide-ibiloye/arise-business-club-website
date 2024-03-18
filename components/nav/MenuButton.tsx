@@ -1,6 +1,6 @@
 import React from "react";
 
-const MenuIcon = () => {
+const MenuButton = () => {
   return (
     <div className="flex-none lg:hidden">
       <label
@@ -26,4 +26,4 @@ const MenuIcon = () => {
   );
 };
 
-export default MenuIcon;
+export default MenuButton;

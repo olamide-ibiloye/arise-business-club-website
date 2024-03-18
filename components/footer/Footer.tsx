@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
-import { services } from "../body/Services";
-import { navs } from "../appbar/AppBar";
-import Form from "../body/Form";
+import Form from "../sections/Form";
+import { navs, servicesText } from "../constants/constants";
 
 interface FooterNavProps {
   title: string;
@@ -21,7 +20,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content lg:max-w-7xl lg:w-full">
       <FooterNav title="Services">
-        {services.map((service) => (
+        {servicesText.services.map((service) => (
           <a key={service.id} className="link link-hover">
             {service.title}
           </a>

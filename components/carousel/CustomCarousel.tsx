@@ -3,21 +3,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-
-interface ImageItem {
-  src: string;
-  alt: string;
-}
-
-interface CarouselProps {
-  images: ImageItem[];
-}
-
-const images = [
-  { src: "/picture-m-1.jpg", alt: "Arise Cover 1" },
-  { src: "/picture-m-2.jpg", alt: "Arise Cover 2" },
-  { src: "/picture-m-3.jpg", alt: "Arise Cover 3" },
-];
+import { images } from "../constants/constants";
 
 const CustomCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);

@@ -8,7 +8,7 @@ interface ServiceProps {
 
 const Service = ({ title, body, icon }: ServiceProps) => {
   return (
-    <div className="text-lg leading-relaxed mb-16 text-center">
+    <div className="text-lg leading-relaxed text-center">
       <div className="flex justify-center items-center mb-8">
         <div className="box-border h-16 w-16 p-4 bg-accent">{icon}</div>
       </div>
