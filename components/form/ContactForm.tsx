@@ -15,7 +15,7 @@ import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "Name cannot be empty.",
   }),
   email: z.string().email({ message: "Invalid email address" }),
   message: z.string().min(2, {
@@ -58,7 +58,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -89,9 +89,11 @@ const ContactForm = () => {
             />
           ))}
 
-          <button className="btn w-[200px] bg-accent outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors">
-            Submit
-          </button>
+          <div className="flex justify-center">
+            <button className="btn w-[200px] bg-accent outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors">
+              Submit
+            </button>
+          </div>
         </form>
       </Form>
     </div>
