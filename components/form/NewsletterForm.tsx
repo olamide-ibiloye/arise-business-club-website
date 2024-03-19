@@ -12,9 +12,7 @@ const NewsletterForm = () => {
           placeholder="username@site.com"
           className="input input-bordered mb-2 sm:mr-2"
         />
-        <button className="btn bg-accent outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors">
-          Subscribe
-        </button>
+        <button className="arise-button">Subscribe</button>
       </div>
     </fieldset>
   );

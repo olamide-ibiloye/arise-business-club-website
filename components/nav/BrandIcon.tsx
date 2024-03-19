@@ -26,7 +26,8 @@ const BrandIcon = ({ size = 70 }) => {
         alt="Arise Business Club Logo"
         width={size}
         height={size}
-        priority
+        placeholder="blur"
+        blurDataURL="/logo.png"
       />
     </a>
   );

@@ -17,7 +17,7 @@ const ContactCard = ({ type, value, name }: ContactCardProps) => {
       </div>
       <div>
         <p className="font-bold">{name}</p>
-        <p className="text-slate-500">{value}</p>
+        <p className="info-text">{value}</p>
       </div>
     </div>
   );

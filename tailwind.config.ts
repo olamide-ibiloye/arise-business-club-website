@@ -3,6 +3,7 @@ import type { Config } from "tailwindcss";
 const myTheme = {
   primary: "#ffffff",
   secondary: "#ff0000",
+  "slate-gray": "#6D6D6D",
   accent: "#b49249",
   neutral: "#fff3dd",
   info: "#00ffff",
@@ -19,6 +20,9 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      montserrat: ["Montserrat", "sans-serif"],
+    },
     fontSize: {
       xs: ["12px", "16px"],
       sm: ["14px", "20px"],

@@ -1,6 +1,6 @@
 import React from "react";
-import Service from "./Service";
-import { servicesText } from "../constants/constants";
+import Service from "./services/Service";
+import { servicesText } from "../../constants/constants";
 
 const Services = () => {
   return (
@@ -9,11 +9,11 @@ const Services = () => {
         {servicesText.header}
       </h2>
 
-      <div className="text-lg leading-relaxed mb-12 text-center">
+      <div className="text-xl leading-relaxed mb-12 text-center">
         <p>{servicesText.subHeader}</p>
       </div>
 
-      <div className="md:grid md:grid-cols-3 md:gap-x-16 lg:gap-x-8">
+      <div className="lg:grid px-0 md:px-16 lg:px-0 lg:grid-cols-3 md:gap-x-16 lg:gap-x-8">
         {servicesText.services.map((service) => (
           <Service
             key={service.id}

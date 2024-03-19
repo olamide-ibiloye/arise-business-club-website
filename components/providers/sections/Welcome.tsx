@@ -1,5 +1,5 @@
 import React from "react";
-import { welcomeText } from "../constants/constants";
+import { welcomeText } from "../../constants/constants";
 
 const Welcome = () => {
   return (
@@ -8,7 +8,7 @@ const Welcome = () => {
         {welcomeText.header}
       </h1>
 
-      <div className="text-lg leading-relaxed text-slate-500">
+      <div className="text-lg leading-relaxed info-text">
         <p>{welcomeText.body}</p>
       </div>
     </section>

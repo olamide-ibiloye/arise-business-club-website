@@ -42,6 +42,7 @@ const CustomCarousel = () => {
               alt={image.alt}
               fill
               className="object-cover"
+              priority
             />
           </AspectRatio>
         ))}

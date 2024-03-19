@@ -1,5 +1,5 @@
 import React from "react";
-import { descriptionText } from "../constants/constants";
+import { descriptionText } from "../../constants/constants";
 
 const Description = () => {
   return (
@@ -8,12 +8,12 @@ const Description = () => {
         {descriptionText.header}
       </h2>
 
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 text-center md:text-left text-slate-500">
-        <div className="text-lg leading-relaxed">
+      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 text-center md:text-left info-text">
+        <div>
           <p>{descriptionText.blockOne}</p>
         </div>
 
-        <div className="text-lg leading-relaxed">
+        <div>
           <p>{descriptionText.blockTwo}</p>
         </div>
       </div>

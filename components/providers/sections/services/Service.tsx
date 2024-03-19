@@ -12,8 +12,8 @@ const Service = ({ title, body, icon }: ServiceProps) => {
       <div className="flex justify-center items-center mb-8">
         <div className="box-border h-16 w-16 p-4 bg-accent">{icon}</div>
       </div>
-      <h3 className="mb-4 text-2xl lg:text-3xl leading-tight">{title}</h3>
-      <p className="text-slate-500">{body}</p>
+      <h3 className="mb-4 text-2xl lg:text-3xl leading-tight ">{title}</h3>
+      <p className="info-text">{body}</p>
     </div>
   );
 };

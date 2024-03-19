@@ -98,6 +98,24 @@ export const contactUsText = {
   socials: "Follow us on social media:",
 };
 
+export const formFields = [
+  {
+    type: "name",
+    label: "Name",
+    placeholder: "name",
+  },
+  {
+    type: "email",
+    label: "Email",
+    placeholder: "email",
+  },
+  {
+    type: "message",
+    label: "Message",
+    placeholder: "type your message",
+  },
+];
+
 export const socialMedia = [
   { linkedIn: "" },
   { instagram: "" },

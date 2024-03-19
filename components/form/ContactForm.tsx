@@ -1,4 +1,6 @@
 "use client";
+
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -9,9 +11,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "../ui/textarea";
+  Input,
+  Textarea,
+} from "../ui";
+import { formFields } from "../constants/constants";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -23,25 +26,11 @@ const formSchema = z.object({
   }),
 });
 
-const formFields = [
-  {
-    type: "name",
-    label: "Name",
-    placeholder: "name",
-  },
-  {
-    type: "email",
-    label: "Email",
-    placeholder: "email",
-  },
-  {
-    type: "message",
-    label: "Message",
-    placeholder: "type your message",
-  },
-];
-
 const ContactForm = () => {
+  // Assuming you have form setup using react-hook-form
+  const { reset } = useForm<z.infer<typeof formSchema>>();
+  const [loading, setLoading] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,14 +40,44 @@ const ContactForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      setLoading(true);
+
+      const data = {
+        ...values,
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      // Optionally, handle response data here if needed
+      const responseData = await response.json();
+      console.log("Form submission successful:", responseData);
+
+      // Reset form fields
+      reset();
+
+      // Optionally, show success message or redirect to a thank you page
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Handle error (e.g., show error message to the user)
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center shadow-3xl px-12 py-16 rounded">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -75,12 +94,17 @@ const ContactForm = () => {
                   <FormControl>
                     {entry.type === "message" ? (
                       <Textarea
-                        className="rounded-none"
+                        className="rounded-none bg-gray-50"
+                        rows={6}
                         placeholder={entry.placeholder}
                         {...field}
                       />
                     ) : (
-                      <Input placeholder={entry.placeholder} {...field} />
+                      <Input
+                        className="bg-gray-50"
+                        placeholder={entry.placeholder}
+                        {...field}
+                      />
                     )}
                   </FormControl>
                   <FormMessage />
@@ -90,8 +114,8 @@ const ContactForm = () => {
           ))}
 
           <div className="flex justify-center">
-            <button className="btn w-[200px] bg-accent outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors">
-              Submit
+            <button className="arise-button w-[200px]" disabled={loading}>
+              {loading ? "Submitting" : "Submit"}
             </button>
           </div>
         </form>

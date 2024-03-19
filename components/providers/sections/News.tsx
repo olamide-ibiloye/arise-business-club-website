@@ -1,5 +1,5 @@
 import React from "react";
-import { newsText } from "../constants/constants";
+import { newsText } from "../../constants/constants";
 
 const News = () => {
   return (
@@ -8,10 +8,10 @@ const News = () => {
         {newsText.header}
       </h2>
 
-      <div className="text-lg leading-relaxed text-center">
+      <div className="text-xl leading-relaxed text-center">
         <p className="pb-4">{newsText.subHeader}</p>
 
-        <p className="text-slate-500">{newsText.body}</p>
+        <p className="info-text">{newsText.body}</p>
       </div>
     </section>
   );
