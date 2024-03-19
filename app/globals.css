@@ -21,6 +21,10 @@
     @apply lg:max-w-7xl lg:w-full;
   }
 
+  .icon {
+    @apply flex justify-center items-center w-7 md:w-9  h-7 md:h-9 bg-slate-300 hover:bg-accent rounded-full cursor-pointer;
+  }
+
   .padding {
     @apply sm:px-16 px-8 sm:py-24 py-12;
   }

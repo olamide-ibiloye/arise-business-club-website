@@ -8,7 +8,7 @@ const Description = () => {
         {descriptionText.header}
       </h2>
 
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 text-center md:text-left">
+      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 text-center md:text-left text-slate-500">
         <div className="text-lg leading-relaxed">
           <p>{descriptionText.blockOne}</p>
         </div>

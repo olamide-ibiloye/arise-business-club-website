@@ -1,9 +1,10 @@
-import { Box, Grid } from "@radix-ui/themes";
 import React from "react";
 import { contactUsText } from "../constants/constants";
+import ContactForm from "../form/ContactForm";
+import ContactCard from "../contact/ContactCard";
 
 const Contact = () => {
-  const { header, subHeader, contacts, socials } = contactUsText;
+  const { header, subHeader, contacts } = contactUsText;
 
   return (
     <section className="padding-y">
@@ -13,19 +14,18 @@ const Contact = () => {
 
       <p className="text-lg mb-5 leading-relaxed text-center">{subHeader}</p>
 
-      <Grid columns="3" gap="3" width="auto">
-        <p>Email: {contacts.email}</p>
+      <div className="flex justify-around  pt-5 pb-10 md:pt-10 flex-col md:flex-row gap-4">
+        {contacts.map((contact) => (
+          <ContactCard
+            key={contact.type}
+            type={contact.type}
+            value={contact.value}
+            name={contact.name}
+          />
+        ))}
+      </div>
 
-        <p>Phone: {contacts.phone}</p>
-
-        <p>{socials.header}</p>
-
-        <p>{socials.ig}</p>
-
-        <p>{socials.linkedIn}</p>
-
-        <p>{socials.twitter}</p>
-      </Grid>
+      <ContactForm />
     </section>
   );
 };

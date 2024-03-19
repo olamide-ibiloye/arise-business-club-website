@@ -1,14 +1,10 @@
 import React from "react";
 
-interface FormProps {
-  title: string;
-}
-
-const Form = ({ title }: FormProps) => {
+const NewsletterForm = () => {
   return (
     <fieldset className="form-control">
       <label className="label">
-        <span className="label-text">{title}</span>
+        <span className="label-text">Enter your email address</span>
       </label>
       <div className="flex flex-col sm:flex-row">
         <input
@@ -24,4 +20,4 @@ const Form = ({ title }: FormProps) => {
   );
 };
 
-export default Form;
+export default NewsletterForm;

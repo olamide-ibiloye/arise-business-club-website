@@ -7,7 +7,6 @@ import Description from "../components/sections/Description";
 import Contact from "../components/sections/Contact";
 import JoinNow from "../components/sections/JoinNow";
 import FAQs from "../components/sections/FAQs";
-import PopUp from "../components/sections/PopUp";
 
 const HomePage = () => (
   <>

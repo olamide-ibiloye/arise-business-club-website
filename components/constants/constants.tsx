@@ -1,6 +1,5 @@
 import React from "react";
 import { CurrencyExchange, Hub, CandlestickChart } from "@mui/icons-material";
-import { title } from "process";
 
 const iconClass = "text-primary w-8 h-8";
 
@@ -92,14 +91,15 @@ export const newsText = {
 export const contactUsText = {
   header: "Contact Us",
   subHeader: "Get in touch with us today:",
-  contacts: {
-    email: "info@arisebusinessclub.com",
-    phone: "+447459467863",
-  },
-  socials: {
-    header: "Follow us on social media:",
-    ig: "",
-    linkedIn: "",
-    twitter: "",
-  },
+  contacts: [
+    { type: "email", name: "Email", value: "info@arisebusinessclub.com" },
+    { type: "phone", name: "Phone", value: "+447459467863" },
+  ],
+  socials: "Follow us on social media:",
 };
+
+export const socialMedia = [
+  { linkedIn: "" },
+  { instagram: "" },
+  { twitter: "" },
+];

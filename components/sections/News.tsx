@@ -9,9 +9,9 @@ const News = () => {
       </h2>
 
       <div className="text-lg leading-relaxed text-center">
-        <p>{newsText.subHeader}</p>
+        <p className="pb-4">{newsText.subHeader}</p>
 
-        <p>{newsText.body}</p>
+        <p className="text-slate-500">{newsText.body}</p>
       </div>
     </section>
   );

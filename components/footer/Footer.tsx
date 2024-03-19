@@ -1,6 +1,9 @@
 import React, { ReactNode } from "react";
-import Form from "../sections/Form";
+import NewsletterForm from "../form/NewsletterForm";
 import { navs, servicesText } from "../constants/constants";
+import Image from "next/image";
+import Socials from "./Socials";
+import BrandIcon from "../nav/BrandIcon";
 
 interface FooterNavProps {
   title: string;
@@ -19,6 +22,10 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
 const Footer: React.FC = () => {
   return (
     <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content lg:max-w-7xl lg:w-full">
+      <FooterNav title="">
+        <BrandIcon size={150} />
+      </FooterNav>
+
       <FooterNav title="Services">
         {servicesText.services.map((service) => (
           <a key={service.id} className="link link-hover">
@@ -35,15 +42,11 @@ const Footer: React.FC = () => {
         ))}
       </FooterNav>
 
-      {/* <FooterNav title="Legal">
-        <a className="link link-hover">Terms of use</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
-      </FooterNav> */}
-
       <form>
         <FooterNav title="Newsletter">
-          <Form title="Enter your email address" />
+          <NewsletterForm />
+
+          <Socials />
         </FooterNav>
       </form>
     </footer>

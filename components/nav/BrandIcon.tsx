@@ -19,9 +19,8 @@ const BrandIcon = ({ size = 70 }) => {
         "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
       break;
   }
-
   return (
-    <div className="flex-1 px-0 mx-0 " style={{ height: size, width: size }}>
+    <a href="/" className="flex-1 px-0 mx-0">
       <Image
         src="/logo.png"
         alt="Arise Business Club Logo"
@@ -29,7 +28,7 @@ const BrandIcon = ({ size = 70 }) => {
         height={size}
         priority
       />
-    </div>
+    </a>
   );
 };
 

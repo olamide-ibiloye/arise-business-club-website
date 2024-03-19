@@ -8,7 +8,7 @@ const Welcome = () => {
         {welcomeText.header}
       </h1>
 
-      <div className="text-lg leading-relaxed ">
+      <div className="text-lg leading-relaxed text-slate-500">
         <p>{welcomeText.body}</p>
       </div>
     </section>
