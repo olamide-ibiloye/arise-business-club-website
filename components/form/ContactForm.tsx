@@ -58,9 +58,12 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <Form {...form}>
-        <div className="space-y-5 w-full md:w-[600px]">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-5 w-full md:w-[600px]"
+        >
           {formFields.map((entry) => (
             <FormField
               key={entry.label}
@@ -71,7 +74,11 @@ const ContactForm = () => {
                   <FormLabel>{entry.label}</FormLabel>
                   <FormControl>
                     {entry.type === "message" ? (
-                      <Textarea placeholder={entry.placeholder} {...field} />
+                      <Textarea
+                        className="rounded-none"
+                        placeholder={entry.placeholder}
+                        {...field}
+                      />
                     ) : (
                       <Input placeholder={entry.placeholder} {...field} />
                     )}
@@ -82,13 +89,10 @@ const ContactForm = () => {
             />
           ))}
 
-          <button
-            type="submit"
-            className="btn w-[200px] bg-accent outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors"
-          >
+          <button className="btn w-[200px] bg-accent outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors">
             Submit
           </button>
-        </div>
+        </form>
       </Form>
     </div>
   );
