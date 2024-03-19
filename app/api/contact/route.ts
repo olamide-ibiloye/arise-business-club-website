@@ -9,9 +9,7 @@ interface ReqData {
   message: string;
 }
 
-export const POST = async (req: {
-  json: () => PromiseLike<ReqData> | ReqData;
-}) => {
+export const POST = async (req: Request) => {
   const { name, email, message } = await req.json();
 
   try {
