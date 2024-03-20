@@ -19,6 +19,9 @@ const NOFICATION_RECIPIENT = [
 // Create a Nodemailer transporter using SMTP transport
 let transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
+  tls: {
+    ciphers: "SSLv3",
+  },
   port: 465,
   secure: true,
   auth: {

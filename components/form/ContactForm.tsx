@@ -28,9 +28,8 @@ const formSchema = z.object({
 
 const ContactForm = () => {
   // Assuming you have form setup using react-hook-form
-  const { reset } = useForm<z.infer<typeof formSchema>>();
   const [loading, setLoading] = useState(false);
-
+  const { reset } = useForm<z.infer<typeof formSchema>>();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -77,7 +76,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex justify-center shadow-3xl px-12 py-16 rounded">
+    <div className="flex justify-center shadow-3xl px-5 py-8 md:px-12 md:py-16 rounded">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

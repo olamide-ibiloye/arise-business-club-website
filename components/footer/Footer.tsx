@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import NewsletterForm from "../form/NewsletterForm";
 import { navs, servicesText } from "../constants/constants";
-import Image from "next/image";
 import Socials from "./Socials";
 import BrandIcon from "../nav/BrandIcon";
 
@@ -23,7 +22,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content lg:max-w-7xl lg:w-full">
       <FooterNav title="">
-        <BrandIcon size={150} />
+        <BrandIcon size={150} style="-ml-8 md:ml-0" />
       </FooterNav>
 
       <FooterNav title="Services">

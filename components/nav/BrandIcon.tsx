@@ -3,9 +3,16 @@ import React from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-const BrandIcon = ({ size = 70 }) => {
+interface BrandIconProps {
+  size: number;
+  style?: string;
+}
+
+const BrandIcon = ({ size = 70, style = "" }: BrandIconProps) => {
   const { resolvedTheme } = useTheme();
   let src;
+
+  const classes = `flex-1 px-0 mx-0 ${style}`;
 
   switch (resolvedTheme) {
     case "light":
@@ -20,7 +27,7 @@ const BrandIcon = ({ size = 70 }) => {
       break;
   }
   return (
-    <a href="/" className="flex-1 px-0 mx-0">
+    <a href="/" className={classes}>
       <Image
         src="/logo.png"
         alt="Arise Business Club Logo"
