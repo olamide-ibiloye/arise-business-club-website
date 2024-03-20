@@ -12,6 +12,7 @@ import {
 import { Input } from "./input";
 import { Label } from "./label";
 import { Textarea } from "./textarea";
+import { Toaster } from "./toaster";
 
 export {
   Button,
@@ -27,4 +28,5 @@ export {
   Input,
   Label,
   Textarea,
+  Toaster,
 };

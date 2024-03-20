@@ -7,6 +7,12 @@ import Description from "../components/providers/sections/Description";
 import Contact from "../components/providers/sections/Contact";
 import JoinNow from "../components/providers/sections/JoinNow";
 import FAQs from "../components/providers/sections/FAQs";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Arise Business Club",
+  description: "Welcome to Arise Business Club",
+};
 
 const HomePage = () => (
   <div>

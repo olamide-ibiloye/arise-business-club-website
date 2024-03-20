@@ -15,6 +15,7 @@ import {
   Textarea,
 } from "../ui";
 import { formFields } from "../constants/constants";
+import { useToast } from "../ui/use-toast";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -32,7 +33,8 @@ const formSchema = z.object({
 const ContactForm = () => {
   // Assuming you have form setup using react-hook-form
   const [loading, setLoading] = useState(false);
-  const { reset } = useForm<z.infer<typeof formSchema>>();
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,20 +45,23 @@ const ContactForm = () => {
     },
   });
 
+  const showToast = () => {
+    toast({
+      title: "Success",
+      description: "Enquiry has been sent successfully!",
+    });
+  };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-
-      const data = {
-        ...values,
-      };
 
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(values),
       });
 
       if (!response.ok) {
@@ -67,8 +72,11 @@ const ContactForm = () => {
       const responseData = await response.json();
       console.log("Form submission successful:", responseData);
 
+      // Notify user
+      showToast();
+
       // Reset form fields
-      reset();
+      form.reset();
 
       // Optionally, show success message or redirect to a thank you page
     } catch (error) {
