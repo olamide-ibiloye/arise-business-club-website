@@ -100,18 +100,23 @@ export const contactUsText = {
 
 export const formFields = [
   {
-    type: "name",
-    label: "Name",
-    placeholder: "name",
+    type: "firstName",
+    label: "First Name*",
+    placeholder: "first name",
+  },
+  {
+    type: "lastName",
+    label: "Last Name*",
+    placeholder: "last name",
   },
   {
     type: "email",
-    label: "Email",
+    label: "Email*",
     placeholder: "email",
   },
   {
     type: "message",
-    label: "Message",
+    label: "Message*",
     placeholder: "type your message",
   },
 ];

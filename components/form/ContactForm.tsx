@@ -17,8 +17,11 @@ import {
 import { formFields } from "../constants/constants";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name cannot be empty.",
+  firstName: z.string().min(2, {
+    message: "First name cannot be empty.",
+  }),
+  lastName: z.string().min(2, {
+    message: "Last name cannot be empty.",
   }),
   email: z.string().email({ message: "Invalid email address" }),
   message: z.string().min(2, {
@@ -33,7 +36,8 @@ const ContactForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       message: "",
     },
@@ -86,7 +90,9 @@ const ContactForm = () => {
             <FormField
               key={entry.label}
               control={form.control}
-              name={entry.type as "message" | "email" | "name"}
+              name={
+                entry.type as "message" | "email" | "firstName" | "lastName"
+              }
               render={({ field }) => (
                 <FormItem key={entry.label}>
                   <FormLabel>{entry.label}</FormLabel>

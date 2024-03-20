@@ -3,18 +3,12 @@ import {
   sendEmailNotification,
 } from "@/utils/sendEmails";
 
-interface ReqData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export const POST = async (req: Request) => {
-  const { name, email, message } = await req.json();
+  const { firstName, lastName, email, message } = await req.json();
 
   try {
     // Send email notification to info@arisebusinessclub.com
-    await sendEmailNotification({ name, email, message });
+    await sendEmailNotification({ firstName, lastName, email, message });
 
     // Send confirmation email to sender
     await sendConfirmationEmail(email);
