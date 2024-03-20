@@ -20,7 +20,7 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content lg:max-w-7xl lg:w-full">
+    <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content box">
       <FooterNav title="">
         <BrandIcon size={150} style="-ml-8 md:ml-0" />
       </FooterNav>

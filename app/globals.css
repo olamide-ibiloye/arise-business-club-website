@@ -20,7 +20,7 @@
 
 @layer utilities {
   .box {
-    @apply lg:max-w-7xl lg:w-full;
+    @apply lg:max-w-7xl lg:w-full px-5;
   }
 
   .arise-button {

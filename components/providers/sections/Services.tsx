@@ -4,7 +4,7 @@ import { servicesText } from "../../constants/constants";
 
 const Services = () => {
   return (
-    <section className="padding-y">
+    <section className="padding-y box">
       <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
         {servicesText.header}
       </h2>

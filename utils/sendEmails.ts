@@ -41,18 +41,9 @@ const sendEmailNotification = async (values: ContactFormData) => {
     };
 
     // Send mail with defined transport object
-    let info = await new Promise((resolve, reject) => {
-      transporter.sendMail(mailData, (err, info) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        } else {
-          resolve(info);
-        }
-      });
-    });
+    let info = await transporter.sendMail(mailData);
 
-    console.log("Email notification sent");
+    console.log("Email notification sent:", info.messageId);
   } catch (error) {
     console.error("Error sending email notification:", error);
   }
@@ -69,18 +60,9 @@ const sendConfirmationEmail = async (email: EmailAddress) => {
     };
 
     // Send mail with defined transport object
-    let info = await new Promise((resolve, reject) => {
-      transporter.sendMail(mailData, (err, info) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        } else {
-          resolve(info);
-        }
-      });
-    });
+    let info = await transporter.sendMail(mailData);
 
-    console.log("Confirmation email sent");
+    console.log("Confirmation email sent:", info.messageId);
   } catch (error) {
     console.error("Error sending confirmation email:", error);
   }

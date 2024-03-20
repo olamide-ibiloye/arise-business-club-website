@@ -38,11 +38,14 @@ const CustomCarousel = () => {
             className="bg-muted"
           >
             <Image
+              key={index}
               src={image.src}
               alt={image.alt}
-              fill
               className="object-cover"
+              fill
               priority
+              placeholder="blur"
+              blurDataURL="/picture-m-1.jpg"
             />
           </AspectRatio>
         ))}

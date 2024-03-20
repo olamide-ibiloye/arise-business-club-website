@@ -9,7 +9,7 @@ import JoinNow from "../components/providers/sections/JoinNow";
 import FAQs from "../components/providers/sections/FAQs";
 
 const HomePage = () => (
-  <>
+  <div>
     <CustomCarousel />
 
     <Welcome />
@@ -27,7 +27,7 @@ const HomePage = () => (
     {/* <FAQs /> */}
 
     {/* <PopUp /> */}
-  </>
+  </div>
 );
 
 export default HomePage;

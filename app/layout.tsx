@@ -24,12 +24,10 @@ export default function RootLayout({
       <body className={inter.className}>
         {/* <Providers> */}
         <Theme>
-          <main className="flex min-h-screen flex-col items-center justify-between px-5">
-            <div className="box">
-              <NavBar />
-              {children}
-              <Footer />
-            </div>
+          <main className="flex min-h-screen flex-col items-center justify-between">
+            <NavBar />
+            {children}
+            <Footer />
           </main>
         </Theme>
         {/* </Providers> */}

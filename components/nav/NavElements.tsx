@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import NavButton from "./NavButton";
 import { ExpandMore } from "@mui/icons-material";
 
@@ -17,19 +16,17 @@ interface NavItem {
 
 interface NavElementsProps {
   navs: NavItem[];
+  handleHover: () => void;
+  handleExit: () => void;
+  inFocus: boolean;
 }
 
-const NavElements: React.FC<NavElementsProps> = ({ navs }) => {
-  const [inFocus, setInFocus] = useState(false);
-
-  const handleHover = () => {
-    setInFocus(true);
-  };
-
-  const handleExit = () => {
-    setInFocus(false);
-  };
-
+const NavElements: React.FC<NavElementsProps> = ({
+  navs,
+  handleHover,
+  handleExit,
+  inFocus,
+}) => {
   return (
     <div className="flex-none hidden lg:block px-0 mx-0">
       <ul className="menu menu-horizontal px-0 mx-0">
@@ -48,7 +45,7 @@ const NavElements: React.FC<NavElementsProps> = ({ navs }) => {
                   />
                 </NavButton>
                 <ul
-                  className="dropdown-content z-[1] menu p-2 shadow bg-primary w-52"
+                  className="dropdown-content z-[1] menu px-2 pt-4 pb-2 bg-base-200 w-52"
                   onMouseOver={handleHover}
                   onMouseLeave={handleExit}
                 >
