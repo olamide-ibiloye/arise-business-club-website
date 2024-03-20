@@ -4,18 +4,10 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  Input,
-  Textarea,
-} from "../ui";
+import { Form } from "../ui";
 import { formFields } from "../constants/constants";
 import { useToast } from "../ui/use-toast";
+import Field from "./Field";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -25,13 +17,12 @@ const formSchema = z.object({
     message: "Last name cannot be empty.",
   }),
   email: z.string().email({ message: "Invalid email address" }),
-  message: z.string().min(2, {
+  message: z.string().min(5, {
     message: "Message cannot be empty.",
   }),
 });
 
 const ContactForm = () => {
-  // Assuming you have form setup using react-hook-form
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -95,35 +86,7 @@ const ContactForm = () => {
           className="space-y-5 w-full md:w-[600px]"
         >
           {formFields.map((entry) => (
-            <FormField
-              key={entry.label}
-              control={form.control}
-              name={
-                entry.type as "message" | "email" | "firstName" | "lastName"
-              }
-              render={({ field }) => (
-                <FormItem key={entry.label}>
-                  <FormLabel>{entry.label}</FormLabel>
-                  <FormControl>
-                    {entry.type === "message" ? (
-                      <Textarea
-                        className="rounded-none bg-gray-50"
-                        rows={6}
-                        placeholder={entry.placeholder}
-                        {...field}
-                      />
-                    ) : (
-                      <Input
-                        className="bg-gray-50"
-                        placeholder={entry.placeholder}
-                        {...field}
-                      />
-                    )}
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <Field key={entry.label} entry={entry} />
           ))}
 
           <div className="flex justify-center">

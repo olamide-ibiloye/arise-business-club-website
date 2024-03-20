@@ -35,6 +35,21 @@ oAuth2Client.setCredentials({
   access_token: ACCESS_TOKEN,
 });
 
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    type: "OAuth2",
+    user: USER_EMAIL,
+    clientId: CLIENT_ID,
+    clientSecret: CLIENT_SECRET,
+    refreshToken: REFRESH_TOKEN,
+    accessToken: oAuth2Client.credentials.access_token,
+  },
+  tls: {
+    rejectUnauthorized: true,
+  },
+} as SMTPTransport.Options);
+
 // Function to send email notification to info@arisebusinessclub.com
 const sendEmailNotification = async (values: ContactFormData) => {
   if (!oAuth2Client) {
@@ -47,21 +62,6 @@ const sendEmailNotification = async (values: ContactFormData) => {
     const { credentials } = await oAuth2Client.refreshAccessToken();
     oAuth2Client.setCredentials(credentials);
   }
-
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      type: "OAuth2",
-      user: USER_EMAIL,
-      clientId: CLIENT_ID,
-      clientSecret: CLIENT_SECRET,
-      refreshToken: REFRESH_TOKEN,
-      accessToken: oAuth2Client.credentials.access_token,
-    },
-    tls: {
-      rejectUnauthorized: true,
-    },
-  } as SMTPTransport.Options);
 
   const mailOptions = {
     from: SENDER,
@@ -91,21 +91,6 @@ const sendConfirmationEmail = async (email: EmailAddress) => {
     const { credentials } = await oAuth2Client.refreshAccessToken();
     oAuth2Client.setCredentials(credentials);
   }
-
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      type: "OAuth2",
-      user: USER_EMAIL,
-      clientId: CLIENT_ID,
-      clientSecret: CLIENT_SECRET,
-      refreshToken: REFRESH_TOKEN,
-      accessToken: oAuth2Client.credentials.access_token,
-    },
-    tls: {
-      rejectUnauthorized: true,
-    },
-  } as SMTPTransport.Options);
 
   const mailOptions = {
     from: SENDER,
