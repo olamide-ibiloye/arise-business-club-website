@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -23,7 +22,6 @@ const formSchema = z.object({
 });
 
 const ContactForm = () => {
-  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -36,6 +34,11 @@ const ContactForm = () => {
     },
   });
 
+  const {
+    reset,
+    formState: { isSubmitting },
+  } = form;
+
   const showToast = () => {
     toast({
       title: "Success",
@@ -45,8 +48,6 @@ const ContactForm = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      setLoading(true);
-
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -67,14 +68,9 @@ const ContactForm = () => {
       showToast();
 
       // Reset form fields
-      form.reset();
-
-      // Optionally, show success message or redirect to a thank you page
+      reset();
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Handle error (e.g., show error message to the user)
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -90,8 +86,8 @@ const ContactForm = () => {
           ))}
 
           <div className="flex justify-center">
-            <button className="arise-button w-[200px]" disabled={loading}>
-              {loading ? "Submitting" : "Submit"}
+            <button className="arise-button w-[200px]" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting" : "Submit"}
             </button>
           </div>
         </form>
