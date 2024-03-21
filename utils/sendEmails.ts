@@ -8,38 +8,26 @@ interface ContactFormData {
   message: string;
 }
 
-type EmailAddress = string | string[];
-
 const USER_EMAIL = process.env.USER_EMAIL;
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const SENDER = `"Arise Business Club" <${USER_EMAIL}>`;
-const NOFICATION_RECIPIENT = [
-  "info@arisebusinessclub.com",
+const NOFICATION_RECIPIENTS = [
+  // "info@arisebusinessclub.com",
   "ibiloyeolamide@gmail.com",
 ];
 
-// Function to send email notification to info@arisebusinessclub.com
-const sendEmailNotification = async (values: ContactFormData) => {
-  const mailOptions = {
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+const sendEmails = async (values: ContactFormData) => {
+  const { firstName, lastName, email, message } = values;
+
+  const notificationMailOptions = {
     from: SENDER,
-    to: NOFICATION_RECIPIENT, // List of receivers
-    subject: "New Contact Form Submission", // Subject line
-    text: `New contact form submission:\n\nFirst Name: ${values.firstName}\nLastName: ${values.lastName}\nEmail: ${values.email}\nMessage: ${values.message}`,
+    to: NOFICATION_RECIPIENTS,
+    subject: "New Contact Form Submission",
+    text: `New contact form submission:\n\nFirst Name: ${firstName}\nLastName: ${lastName}\nEmail: ${email}\nMessage: ${message}`,
   };
 
-  try {
-    const data = await resend.emails.send(mailOptions);
-
-    return Response.json(data);
-  } catch (error) {
-    return Response.json({ error });
-  }
-};
-
-// Function to send confirmation/response email to sender
-const sendConfirmationEmail = async (email: EmailAddress) => {
-  const mailOptions = {
+  const confirmationMailOptions = {
     from: SENDER,
     to: email,
     subject: "Thank you for your inquiry",
@@ -47,12 +35,13 @@ const sendConfirmationEmail = async (email: EmailAddress) => {
   };
 
   try {
-    const data = await resend.emails.send(mailOptions);
+    const notificationData = await resend.emails.send(notificationMailOptions);
+    const confirmationData = await resend.emails.send(confirmationMailOptions);
 
-    return Response.json(data);
+    return Response.json({ notificationData, confirmationData });
   } catch (error) {
     return Response.json({ error });
   }
 };
 
-export { sendEmailNotification, sendConfirmationEmail };
+export { sendEmails };

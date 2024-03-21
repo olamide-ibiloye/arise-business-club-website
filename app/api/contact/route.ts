@@ -1,24 +1,21 @@
-import {
-  sendConfirmationEmail,
-  sendEmailNotification,
-} from "@/utils/sendEmails";
+import { addUserToDB } from "@/utils/addToDB";
+import { sendEmails } from "@/utils/sendEmails";
+import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
   const { firstName, lastName, email, message } = await req.json();
 
   try {
-    // Send email notification to info@arisebusinessclub.com
-    await sendEmailNotification({ firstName, lastName, email, message });
-
-    // Send confirmation email to sender
-    await sendConfirmationEmail(email);
+    // Send email notification to info@arisebusinessclub.com & confirmation email to sender
+    await sendEmails({ firstName, lastName, email, message });
 
     //Add user to DB
+    await addUserToDB();
 
-    return new Response(JSON.stringify("Message sent successfully"), {
+    return new NextResponse(JSON.stringify("Message sent successfully"), {
       status: 200,
     });
   } catch (error) {
-    return new Response("Failed to send message", { status: 500 });
+    return new NextResponse("Failed to send message", { status: 500 });
   }
 };
