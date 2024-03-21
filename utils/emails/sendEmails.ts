@@ -1,7 +1,9 @@
+import React from "react";
 import { Resend } from "resend";
-import { EMAIL_TEMPLATE } from "./confirmationEmail";
+import Notification from "./Notification";
+import Confirmation from "./Confirmation";
 
-interface ContactFormData {
+export interface ContactFormData {
   firstName: string;
   lastName: string;
   email: string;
@@ -12,7 +14,7 @@ const USER_EMAIL = "contact@arisebusinessclub.com";
 const SENDER = `"Arise Business Club" <${USER_EMAIL}>`;
 const REPLY_TO = "info@arisebusinessclub.com";
 const NOFICATION_RECIPIENTS = [
-  // "info@arisebusinessclub.com",
+  "info@arisebusinessclub.com",
   "ibiloyeolamide@gmail.com",
 ];
 
@@ -25,7 +27,12 @@ const sendEmails = async (values: ContactFormData) => {
     from: SENDER,
     to: NOFICATION_RECIPIENTS,
     subject: "New Contact Form Submission",
-    text: `New contact form submission:\n\nFirst Name: ${firstName}\nLastName: ${lastName}\nEmail: ${email}\nMessage: ${message}`,
+    react: React.createElement(Notification, {
+      firstName,
+      lastName,
+      email,
+      message,
+    }),
   };
 
   const confirmationMailOptions = {
@@ -33,7 +40,9 @@ const sendEmails = async (values: ContactFormData) => {
     to: email,
     reply_to: REPLY_TO,
     subject: "Thank you for your inquiry",
-    html: EMAIL_TEMPLATE,
+    react: React.createElement(Confirmation, {
+      firstName,
+    }),
   };
 
   try {

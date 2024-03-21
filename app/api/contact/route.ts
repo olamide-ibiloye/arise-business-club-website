@@ -1,5 +1,5 @@
-import { addUserToDB } from "@/utils/addToDB";
-import { sendEmails } from "@/utils/sendEmails";
+import { addUserToDB } from "@/utils/database/addToDB";
+import { sendEmails } from "@/utils/emails/sendEmails";
 import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
