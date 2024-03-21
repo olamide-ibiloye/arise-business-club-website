@@ -8,14 +8,15 @@ interface ContactFormData {
   message: string;
 }
 
-const USER_EMAIL = process.env.USER_EMAIL;
+const USER_EMAIL = "contact@arisebusinessclub.com";
 const SENDER = `"Arise Business Club" <${USER_EMAIL}>`;
+const REPLY_TO = "info@arisebusinessclub.com";
 const NOFICATION_RECIPIENTS = [
   // "info@arisebusinessclub.com",
   "ibiloyeolamide@gmail.com",
 ];
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 const sendEmails = async (values: ContactFormData) => {
   const { firstName, lastName, email, message } = values;
@@ -30,6 +31,7 @@ const sendEmails = async (values: ContactFormData) => {
   const confirmationMailOptions = {
     from: SENDER,
     to: email,
+    reply_to: REPLY_TO,
     subject: "Thank you for your inquiry",
     html: EMAIL_TEMPLATE,
   };

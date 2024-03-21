@@ -15,9 +15,7 @@ jobs:
         node-version: [20.11.1]
 
     env:
-      RESEND_API_KEY: ${{secrets.RESEND_API_KEY}}
-      WEBSITE_URL: ${{secrets.WEBSITE_URL}}
-      USER_EMAIL: ${{secrets.USER_EMAIL}}
+      NEXT_PUBLIC_RESEND_API_KEY: ${{secrets.NEXT_PUBLIC_RESEND_API_KEY}}
 
     steps:
       - uses: actions/checkout@v3
