@@ -2,13 +2,13 @@ import React from "react";
 
 const JoinNow = () => {
   return (
-    <section className="padding-y box">
-      <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
-        Join Now
-      </h2>
+    <section className="padding-y box text-center">
+      <h2 className="head-text">Join Now</h2>
 
-      <div className="text-xl leading-relaxed text-center">
-        <p className="p-4">Ready to take the next step?</p>
+      <hr className="pb-4" />
+
+      <div className="leading-relaxed text-center">
+        <p className="sub-text">Ready to take the next step?</p>
 
         <p className="info-text">
           Become a member of Arise Business Club and unlock exclusive benefits,
@@ -19,7 +19,7 @@ const JoinNow = () => {
           Sign up now and start your journey towards financial success!
         </p>
 
-        <button className="arise-button w-[200px] my-10">Join Now</button>
+        <button className="arise-button w-[200px] my-10">Get Started</button>
       </div>
     </section>
   );

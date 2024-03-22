@@ -4,13 +4,11 @@ import { servicesText } from "../constants/constants";
 
 const Services = () => {
   return (
-    <section className="padding-y box">
-      <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-center">
-        {servicesText.header}
-      </h2>
+    <section className="padding-y box text-center">
+      <h2 className="head-text">{servicesText.header}</h2>
 
-      <div className="text-xl leading-relaxed mb-12 text-center">
-        <p>{servicesText.subHeader}</p>
+      <div className=" mb-12 text-center">
+        <p className="sub-text">{servicesText.subHeader}</p>
       </div>
 
       <div className="lg:grid px-0 md:px-16 lg:px-0 lg:grid-cols-3 md:gap-x-16 lg:gap-x-8">

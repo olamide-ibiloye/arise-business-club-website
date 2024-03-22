@@ -31,8 +31,6 @@ const HomePage = () => (
     <JoinNow />
 
     {/* <FAQs /> */}
-
-    {/* <PopUp /> */}
   </div>
 );
 

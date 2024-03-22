@@ -41,13 +41,9 @@ const Footer: React.FC = () => {
         ))}
       </FooterNav>
 
-      <form>
-        <FooterNav title="Newsletter">
-          <NewsletterForm />
-
-          <Socials />
-        </FooterNav>
-      </form>
+      <FooterNav title="Newsletter">
+        <NewsletterForm />
+      </FooterNav>
     </footer>
   );
 };

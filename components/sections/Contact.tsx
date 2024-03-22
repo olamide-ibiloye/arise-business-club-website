@@ -10,10 +10,8 @@ const Contact = () => {
     <section className="padding-y box">
       <div className="lg:grid lg:grid-cols-2 md:gap-x-16 lg:gap-x-8 justify-center items-center px-0 md:px-16 lg:px-0">
         <div className="flex items-start pt-5 pb-10 md:pt-10 flex-col gap-5">
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-5 text-center">
-            {header}
-          </h2>
-          <p className="text-xl leading-relaxed text-center">{subHeader}</p>
+          <h2 className="head-text">{header}</h2>
+          <p className="sub-text">{subHeader}</p>
 
           <p className="info-text pb-5">
             Get more information about events, make enquiries about partnerships

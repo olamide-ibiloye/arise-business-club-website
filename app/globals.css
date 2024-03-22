@@ -24,7 +24,7 @@
   }
 
   .arise-button {
-    @apply btn bg-accent outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors;
+    @apply btn bg-accent rounded-none outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors;
   }
 
   .icon {
@@ -59,7 +59,15 @@
     @apply sm:pb-24 pb-12;
   }
 
+  .head-text {
+    @apply text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-accent;
+  }
+
+  .sub-text {
+    @apply text-xl leading-relaxed pb-4;
+  }
+
   .info-text {
-    @apply font-montserrat text-slate-gray text-lg leading-7;
+    @apply font-montserrat text-slate-gray leading-7;
   }
 }

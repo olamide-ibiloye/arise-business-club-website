@@ -25,7 +25,6 @@ const Field = ({ entry }: FieldProps) => {
 
   return (
     <FormField
-      key={entry.label}
       control={form.control}
       name={entry.type as "message" | "email" | "firstName" | "lastName"}
       render={({ field }) => (
@@ -34,14 +33,14 @@ const Field = ({ entry }: FieldProps) => {
           <FormControl>
             {entry.type === "message" ? (
               <Textarea
-                className=" bg-gray-50"
+                className="rounded-none bg-gray-50"
                 rows={6}
                 placeholder={entry.placeholder}
                 {...field}
               />
             ) : (
               <Input
-                className="bg-gray-50 rounded-md"
+                className="bg-gray-50"
                 placeholder={entry.placeholder}
                 {...field}
               />
