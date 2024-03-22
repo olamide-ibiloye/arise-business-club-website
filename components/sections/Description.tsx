@@ -1,5 +1,5 @@
 import React from "react";
-import { descriptionText } from "../../constants/constants";
+import { descriptionText } from "../constants/constants";
 
 const Description = () => {
   return (

@@ -34,14 +34,14 @@ const Field = ({ entry }: FieldProps) => {
           <FormControl>
             {entry.type === "message" ? (
               <Textarea
-                className="rounded-none bg-gray-50"
+                className=" bg-gray-50"
                 rows={6}
                 placeholder={entry.placeholder}
                 {...field}
               />
             ) : (
               <Input
-                className="bg-gray-50"
+                className="bg-gray-50 rounded-md"
                 placeholder={entry.placeholder}
                 {...field}
               />

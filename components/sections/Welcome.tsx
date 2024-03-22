@@ -1,5 +1,5 @@
 import React from "react";
-import { welcomeText } from "../../constants/constants";
+import { welcomeText } from "../constants/constants";
 
 const Welcome = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import { contactUsText } from "../../constants/constants";
-import ContactForm from "../../form/ContactForm";
+import { contactUsText } from "../constants/constants";
+import ContactForm from "../form/ContactForm";
 import ContactCard from "./contact/ContactCard";
 
 const Contact = () => {

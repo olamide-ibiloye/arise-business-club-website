@@ -1,12 +1,12 @@
 import React from "react";
 import CustomCarousel from "../components/carousel/CustomCarousel";
-import Services from "../components/providers/sections/Services";
-import News from "../components/providers/sections/News";
-import Welcome from "../components/providers/sections/Welcome";
-import Description from "../components/providers/sections/Description";
-import Contact from "../components/providers/sections/Contact";
-import JoinNow from "../components/providers/sections/JoinNow";
-import FAQs from "../components/providers/sections/FAQs";
+import Services from "../components/sections/Services";
+import News from "../components/sections/News";
+import Welcome from "../components/sections/Welcome";
+import Description from "../components/sections/Description";
+import Contact from "../components/sections/Contact";
+import JoinNow from "../components/sections/JoinNow";
+import FAQs from "../components/sections/FAQs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ const HomePage = () => (
 
     <Contact />
 
-    {/* <JoinNow /> */}
+    <JoinNow />
 
     {/* <FAQs /> */}
 

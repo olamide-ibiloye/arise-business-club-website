@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 
 interface BrandIconProps {
@@ -8,12 +9,26 @@ interface BrandIconProps {
 }
 
 const BrandIcon = ({ size = 70, style = "" }: BrandIconProps) => {
+  const { resolvedTheme } = useTheme();
   const classes = `flex-1 px-0 mx-0 ${style}`;
+  let src;
+
+  switch (resolvedTheme) {
+    case "light":
+      src = "/logo.png";
+      break;
+    case "dark":
+      src = "/abc.png";
+      break;
+    default:
+      src = "/logo.png";
+      break;
+  }
 
   return (
     <a href="/" className={classes}>
       <Image
-        src="/logo.png"
+        src={src}
         alt="Arise Business Club Logo"
         width={size}
         height={size}
