@@ -27,6 +27,10 @@
     @apply btn bg-accent rounded-none outline-none text-white hover:bg-white hover:text-black duration-200 transition-colors;
   }
 
+  .icon-class {
+    @apply text-primary w-8 h-8;
+  }
+
   .icon {
     @apply flex justify-center items-center w-7 md:w-9  h-7 md:h-9 bg-slate-300 hover:bg-accent rounded-full cursor-pointer;
   }
@@ -60,7 +64,7 @@
   }
 
   .head-text {
-    @apply text-5xl md:text-6xl font-bold tracking-tighter leading-tight mb-6 text-accent;
+    @apply text-5xl md:text-6xl tracking-tighter leading-tight mb-6 text-accent;
   }
 
   .sub-text {

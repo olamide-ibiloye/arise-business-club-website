@@ -25,6 +25,11 @@ const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
 });
 
+interface ToastProps {
+  title: string;
+  description: string;
+}
+
 const NewsletterForm = () => {
   const { toast } = useToast();
 
@@ -40,16 +45,16 @@ const NewsletterForm = () => {
     formState: { isSubmitting },
   } = form;
 
-  const showToast = () => {
+  const showToast = ({ title, description }: ToastProps) => {
     toast({
-      title: "Success",
-      description: "You're In! Thanks for subscribing",
+      title,
+      description,
     });
   };
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,12 +71,21 @@ const NewsletterForm = () => {
       console.log("Form submission successful:", responseData);
 
       // Notify user
-      showToast();
+      showToast({
+        title: "Success",
+        description: "You're In! Thanks for subscribing.",
+      });
 
       // Reset form fields
       reset();
     } catch (error) {
       console.error("Error submitting form:", error);
+
+      showToast({
+        title: "Failed",
+        description:
+          "You're already a subscriber! You'd be hearing from us soon",
+      });
     }
   };
 

@@ -6,7 +6,6 @@ import Welcome from "../components/sections/Welcome";
 import Description from "../components/sections/Description";
 import Contact from "../components/sections/Contact";
 import JoinNow from "../components/sections/JoinNow";
-import FAQs from "../components/sections/FAQs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -29,8 +28,6 @@ const HomePage = () => (
     <Contact />
 
     <JoinNow />
-
-    {/* <FAQs /> */}
   </div>
 );
 

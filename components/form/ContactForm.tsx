@@ -15,11 +15,11 @@ const formSchema = z.object({
   lastName: z.string().min(2, {
     message: "Last name cannot be empty.",
   }),
-  email: z.string().email({ message: "Invalid email address" }),
+  email: z.string().email({ message: "Invalid email address." }),
   message: z
     .string()
-    .min(10, { message: "Message cannot be less than 10 characters" })
-    .max(1000, { message: "Message cannot be more than 1000 characters" }),
+    .min(10, { message: "Message cannot be less than 10 characters." })
+    .max(1000, { message: "Message cannot be more than 1000 characters." }),
 });
 
 const ContactForm = () => {
@@ -48,8 +48,6 @@ const ContactForm = () => {
   };
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",

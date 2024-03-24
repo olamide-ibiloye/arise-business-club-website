@@ -1,25 +1,23 @@
 import React from "react";
+import { joinNowText } from "../constants/constants";
 
 const JoinNow = () => {
   return (
     <section className="padding-y box text-center">
-      <h2 className="head-text">Join Now</h2>
+      <h2 className="head-text">{joinNowText.header}</h2>
 
       <hr className="pb-4" />
 
       <div className="leading-relaxed text-center">
-        <p className="sub-text">Ready to take the next step?</p>
+        <p className="sub-text">{joinNowText.subHeader}</p>
 
-        <p className="info-text">
-          Become a member of Arise Business Club and unlock exclusive benefits,
-          resources, and opportunities.
-        </p>
+        <p className="info-text">{joinNowText.bodyOne}</p>
 
-        <p className="info-text">
-          Sign up now and start your journey towards financial success!
-        </p>
+        <p className="info-text">{joinNowText.bodyTwo}</p>
 
-        <button className="arise-button w-[200px] my-10">Get Started</button>
+        <button className="arise-button w-[200px] my-10">
+          {joinNowText.buttonName}
+        </button>
       </div>
     </section>
   );

@@ -1,14 +1,25 @@
 import React from "react";
-import { CurrencyExchange, Hub, CandlestickChart } from "@mui/icons-material";
+import {
+  CurrencyExchange,
+  Hub,
+  CandlestickChart,
+  LinkedIn,
+  Instagram,
+  Facebook,
+  Email,
+  Phone,
+} from "@mui/icons-material";
 
-const iconClass = "text-primary w-8 h-8";
+const iconStyle = { color: "white", fontSize: { xs: 15, md: 20 } };
 
-interface SubNavItem {
+const contactIconStyle = { color: "white", fontSize: { xs: 20, md: 30 } };
+
+export interface SubNavItem {
   id: string;
   name: string;
 }
 
-interface NavItem {
+export interface NavItem {
   id: string;
   name: string;
   subNavs: boolean;
@@ -35,7 +46,6 @@ export const navs: NavItem[] = [
   },
   { id: "testimonials", name: "Testimonials", subNavs: false },
   { id: "news", name: "News", subNavs: false },
-  { id: "join-now", name: "Join now", subNavs: false },
 ];
 
 export const images = [
@@ -50,7 +60,7 @@ export const welcomeText = {
 };
 
 export const descriptionText = {
-  header: "Club Description",
+  header: "About Us",
   blockOne:
     "At Arise Business Club, we believe in more than just business success; we believe in making a meaningful difference in the world. That's why we've created a unique platform that combines business networking with philanthropic initiatives, bringing together like-minded individuals who are passionate about both professional growth and social impact. Our club serves as a hub for entrepreneurs, business leaders, and changemakers who are committed to using their skills, resources, and influence to drive positive change in their communities and beyond. Through a series of curated events, workshops, and projects, we aim to harness the collective power of our members to address pressing social issues, support charitable causes, and create lasting impact.",
   blockTwo:
@@ -64,19 +74,19 @@ export const servicesText = {
     {
       id: "financial-education",
       title: "Financial Education",
-      icon: <CurrencyExchange className={iconClass} />,
+      icon: <CurrencyExchange className="icon-class" />,
       body: "Gain valuable insights and knowledge through webinars, tutorials, and market analysis",
     },
     {
       id: "networking-events",
       title: "Networking Events",
-      icon: <Hub className={iconClass} />,
+      icon: <Hub className="icon-class" />,
       body: "Connect with like-minded individuals, attend workshops, and participate in community forums to expand your network and grow your wealth.",
     },
     {
       id: "investment-opportunities",
       title: "Investment Opportunities",
-      icon: <CandlestickChart className={iconClass} />,
+      icon: <CandlestickChart className="icon-class" />,
       body: "Explore diverse investment options, including forex trading, real estate, and more.",
     },
   ],
@@ -91,9 +101,20 @@ export const newsText = {
 export const contactUsText = {
   header: "Contact Us",
   subHeader: "Get in touch with us today:",
+  body: "Get more information about events, make enquiries about partnerships & investments.",
   contacts: [
-    { type: "email", name: "Email", value: "info@arisebusinessclub.com" },
-    { type: "phone", name: "Phone", value: "+447459467863" },
+    {
+      type: "email",
+      name: "Email",
+      value: "info@arisebusinessclub.com",
+      icon: <Email sx={contactIconStyle} />,
+    },
+    {
+      type: "phone",
+      name: "Phone",
+      value: "+(44) 745 946 7863",
+      icon: <Phone sx={contactIconStyle} />,
+    },
   ],
   socials: "Follow us on social media:",
 };
@@ -121,8 +142,30 @@ export const formFields = [
   },
 ];
 
-export const socialMedia = [
-  { linkedIn: "" },
-  { instagram: "" },
-  { twitter: "" },
+export const joinNowText = {
+  header: "Join Now",
+  subHeader: "Ready to take the next step?",
+  bodyOne:
+    "Become a member of Arise Business Club and unlock exclusive benefits, resources, and opportunities.",
+  bodyTwo: "Sign up now and start your journey towards financial success!",
+  buttonName: "Get Started",
+};
+
+export const socials = [
+  {
+    name: "LinkedIn",
+    icon: <LinkedIn sx={iconStyle} />,
+    url: "",
+  },
+
+  {
+    name: "Instagram",
+    icon: <Instagram sx={iconStyle} />,
+    url: "https://www.instagram.com/arisebusinessclub?igsh=MTJhMjd1NmRuOHQ2Mw==",
+  },
+  {
+    name: "Facebook",
+    icon: <Facebook sx={iconStyle} />,
+    url: "https://m.facebook.com/groups/384520050968771/",
+  },
 ];

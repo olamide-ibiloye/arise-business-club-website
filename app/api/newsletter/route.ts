@@ -1,4 +1,5 @@
 import { sendEmails } from "@/utils/emails/sendEmails";
+import { addToMailchimp } from "@/utils/mailchimp/addToMailchimp";
 import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
@@ -6,11 +7,14 @@ export const POST = async (req: Request) => {
     return new NextResponse("Method Not Allowed", { status: 405 });
   }
 
-  const { firstName, lastName, email, message, type } = await req.json();
+  const { email } = await req.json();
 
   try {
-    // Send email notification to info@arisebusinessclub.com & confirmation email to sender
-    await sendEmails({ firstName, lastName, email, message, type });
+    // Send confirmation email to sender
+    await sendEmails({ email });
+
+    //Add user to MailChimp
+    await addToMailchimp({ email });
 
     return new NextResponse(JSON.stringify("Message sent successfully"), {
       status: 200,

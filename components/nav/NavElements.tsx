@@ -1,18 +1,7 @@
 import React from "react";
 import NavButton from "./NavButton";
 import { ExpandMore } from "@mui/icons-material";
-
-interface SubNavItem {
-  id: string;
-  name: string;
-}
-
-interface NavItem {
-  id: string;
-  name: string;
-  subNavs: boolean;
-  subNavLinks?: SubNavItem[];
-}
+import { NavItem } from "../constants/constants";
 
 interface NavElementsProps {
   navs: NavItem[];
@@ -60,6 +49,8 @@ const NavElements: React.FC<NavElementsProps> = ({
           </React.Fragment>
         ))}
       </ul>
+
+      <button className="arise-button ml-4">Get Started</button>
     </div>
   );
 };
