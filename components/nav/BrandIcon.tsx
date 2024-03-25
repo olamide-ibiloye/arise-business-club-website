@@ -2,6 +2,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import Link from "next/link";
 
 interface BrandIconProps {
   size: number;
@@ -26,7 +27,7 @@ const BrandIcon = ({ size = 70, style = "" }: BrandIconProps) => {
   }
 
   return (
-    <a href="/" className={classes}>
+    <Link href="/" className={classes}>
       <Image
         src={src}
         alt="Arise Business Club Logo"
@@ -35,7 +36,7 @@ const BrandIcon = ({ size = 70, style = "" }: BrandIconProps) => {
         placeholder="blur"
         blurDataURL="/logo.png"
       />
-    </a>
+    </Link>
   );
 };
 

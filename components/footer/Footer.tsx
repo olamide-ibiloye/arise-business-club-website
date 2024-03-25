@@ -3,6 +3,7 @@ import NewsletterForm from "../form/NewsletterForm";
 import { navs, servicesText } from "../constants/constants";
 import Socials from "./Socials";
 import BrandIcon from "../nav/BrandIcon";
+import Link from "next/link";
 
 interface FooterNavProps {
   title: string;
@@ -27,17 +28,17 @@ const Footer: React.FC = () => {
 
       <FooterNav title="Services">
         {servicesText.services.map((service) => (
-          <a key={service.id} className="link link-hover">
+          <Link key={service.id} className="link link-hover" href="">
             {service.title}
-          </a>
+          </Link>
         ))}
       </FooterNav>
 
       <FooterNav title="Company">
         {navs.map((nav) => (
-          <a key={nav.id} className="link link-hover">
+          <Link key={nav.id} className="link link-hover" href="">
             {nav.name}
-          </a>
+          </Link>
         ))}
       </FooterNav>
 

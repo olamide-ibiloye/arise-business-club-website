@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ExpandMore } from "@mui/icons-material";
+import Link from "next/link";
 
 interface SubNavItem {
   id: string;
@@ -35,9 +36,10 @@ const Sidebar: React.FC<{ navs: NavItem[] }> = ({ navs }) => {
           <div>
             {navs.map((nav) => (
               <li key={nav.id} className="py-2">
-                <a
+                <Link
                   className="flex items-center"
                   onClick={() => toggleSubNav(nav.id)}
+                  href=""
                 >
                   <div className="flex flex-1 font-semibold">{nav.name}</div>
                   <div className="flex">
@@ -52,7 +54,7 @@ const Sidebar: React.FC<{ navs: NavItem[] }> = ({ navs }) => {
                       />
                     )}
                   </div>
-                </a>
+                </Link>
                 {nav.subNavs && activeNav === nav.id && (
                   <ul>
                     {nav.subNavLinks &&
@@ -61,7 +63,7 @@ const Sidebar: React.FC<{ navs: NavItem[] }> = ({ navs }) => {
                           key={subNavItem.id}
                           className="py-2 pl-2 font-semibold"
                         >
-                          <a>{subNavItem.name}</a>
+                          <Link href="">{subNavItem.name}</Link>
                         </li>
                       ))}
                   </ul>
