@@ -36,9 +36,13 @@
     "resend": "^3.2.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "sanity": "^3.35.2",
+    "styled-components": "^6.0.7",
+    "@sanity/vision": "^3.35.2"
   },
   "devDependencies": {
+    "@sanity/eslint-config-studio": "^3.0.1",
     "@types/mailchimp__mailchimp_marketing": "^3.0.19",
     "@types/node": "^20",
     "@types/react": "^18",

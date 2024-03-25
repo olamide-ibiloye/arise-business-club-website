@@ -26,22 +26,26 @@ export const metadata: Metadata = {
   description: "Welcome to Arise Business Club",
 };
 
-const HomePage = () => (
-  <div>
-    <CustomCarousel />
+const HomePage = async () => {
+  const {} = await getContent();
 
-    <Welcome />
+  return (
+    <div>
+      <CustomCarousel />
 
-    <Description />
+      <Welcome />
 
-    <Services />
+      <Description />
 
-    <News />
+      <Services />
 
-    <Contact />
+      <News />
 
-    <JoinNow />
-  </div>
-);
+      <Contact />
+
+      <JoinNow />
+    </div>
+  );
+};
 
 export default HomePage;
