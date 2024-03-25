@@ -1,6 +1,5 @@
 import React from "react";
 import Service from "./services/Service";
-import { servicesText } from "../constants/constants";
 
 interface ServicesProps {
   content: { header: string; subHeader: string; services: any };
