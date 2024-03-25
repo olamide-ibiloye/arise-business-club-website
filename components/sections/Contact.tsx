@@ -1,10 +1,25 @@
 import React from "react";
-import { contactUsText } from "../constants/constants";
 import ContactForm from "../form/ContactForm";
 import ContactCard from "./contact/ContactCard";
+import { getIcon } from "../constants/constants";
 
-const Contact = () => {
-  const { header, subHeader, body, contacts } = contactUsText;
+interface ContactCardProps {
+  value: string;
+  name: string;
+  icon: string;
+}
+
+interface ContactProps {
+  content: {
+    header: string;
+    subHeader: string;
+    body: string;
+    contacts: ContactCardProps[];
+  };
+}
+
+const Contact = ({ content }: ContactProps) => {
+  const { header, subHeader, body, contacts } = content;
 
   return (
     <section className="padding-y box">
@@ -19,12 +34,12 @@ const Contact = () => {
 
           <p className="info-text pb-5">{body}</p>
 
-          {contacts.map((contact) => (
+          {contacts.map((contact: ContactCardProps) => (
             <ContactCard
-              key={contact.type}
+              key={contact.name}
               value={contact.value}
               name={contact.name}
-              icon={contact.icon}
+              icon={getIcon(contact.icon)}
             />
           ))}
         </div>

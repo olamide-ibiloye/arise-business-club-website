@@ -1,15 +1,18 @@
 import React from "react";
-import { newsText } from "../constants/constants";
 
-const News = () => {
+interface NewsProps {
+  content: { header: string; subHeader: string; body: string };
+}
+
+const News = ({ content }: NewsProps) => {
   return (
     <section className="padding-y box text-center">
-      <h2 className="head-text">{newsText.header}</h2>
+      <h2 className="head-text">{content.header}</h2>
 
       <div className="text-center">
-        <p className="sub-text">{newsText.subHeader}</p>
+        <p className="sub-text">{content.subHeader}</p>
 
-        <p className="info-text">{newsText.body}</p>
+        <p className="info-text">{content.body}</p>
       </div>
     </section>
   );

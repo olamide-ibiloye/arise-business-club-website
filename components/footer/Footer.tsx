@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import NewsletterForm from "../form/NewsletterForm";
-import { navs, servicesText } from "../constants/constants";
-import Socials from "./Socials";
+import { navs } from "../constants/constants";
 import BrandIcon from "../nav/BrandIcon";
 import Link from "next/link";
 
@@ -19,6 +18,8 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
   );
 };
 
+const services = navs.find((nav) => nav.id === "services");
+
 const Footer: React.FC = () => {
   return (
     <footer className="footer p-6 lg:p-10 bg-base-200 text-base-content box">
@@ -27,9 +28,9 @@ const Footer: React.FC = () => {
       </FooterNav>
 
       <FooterNav title="Services">
-        {servicesText.services.map((service) => (
+        {services?.subNavLinks?.map((service) => (
           <Link key={service.id} className="link link-hover" href="">
-            {service.title}
+            {service.name}
           </Link>
         ))}
       </FooterNav>

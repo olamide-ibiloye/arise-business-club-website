@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import Footer from "../components/footer/Footer";
-import { Theme } from "@radix-ui/themes";
 import NavBar from "../components/nav/NavBar";
 import { Toaster } from "@/components/ui";
 import { ThemeProvider } from "next-themes";
@@ -20,7 +19,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider enableSystem={false}>
-          {/* <Theme> */}
           <main className="flex min-h-screen flex-col items-center justify-between">
             <NavBar />
             {children}
@@ -28,7 +26,6 @@ export default function RootLayout({
           </main>
 
           <Toaster />
-          {/* </Theme> */}
         </ThemeProvider>
       </body>
     </html>

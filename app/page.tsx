@@ -9,16 +9,20 @@ import Contact from "../components/sections/Contact";
 import JoinNow from "../components/sections/JoinNow";
 import { Metadata } from "next";
 
-// Fetch content with GROQ
-const getContent = async () => {
-  const CONTENT_QUERY = `*[_type == "pricing"] {
-  ...,
-  plans[]->
-}
-`;
-  const content = await client.fetch(CONTENT_QUERY);
+export const revalidate = 300;
 
-  return content;
+const getContent = async () => {
+  const CONTENT_QUERY = `*[_type == 'homepage'][0] {
+    carousel,
+    welcome,
+    about_us,
+    our_services,
+    news,
+    contact_us,
+    join_now
+  }`;
+
+  return await client.fetch(CONTENT_QUERY);
 };
 
 export const metadata: Metadata = {
@@ -27,23 +31,31 @@ export const metadata: Metadata = {
 };
 
 const HomePage = async () => {
-  const {} = await getContent();
+  const {
+    carousel: { images },
+    welcome,
+    about_us,
+    our_services,
+    news,
+    contact_us,
+    join_now,
+  } = await getContent();
 
   return (
     <div>
-      <CustomCarousel />
+      <CustomCarousel images={images} />
 
-      <Welcome />
+      <Welcome content={welcome} />
 
-      <Description />
+      <Description content={about_us} />
 
-      <Services />
+      <Services content={our_services} />
 
-      <News />
+      <News content={news} />
 
-      <Contact />
+      <Contact content={contact_us} />
 
-      <JoinNow />
+      <JoinNow content={join_now} />
     </div>
   );
 };

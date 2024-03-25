@@ -1,13 +1,16 @@
 import React from "react";
-import { welcomeText } from "../constants/constants";
 
-const Welcome = () => {
+interface WelcomeProps {
+  content: { header: string; body: string };
+}
+
+const Welcome = ({ content }: WelcomeProps) => {
   return (
     <section className="padding-y text-center box">
-      <h1 className="head-text">{welcomeText.header}</h1>
+      <h1 className="head-text">{content.header}</h1>
 
       <div className="info-text">
-        <p>{welcomeText.body}</p>
+        <p>{content.body}</p>
       </div>
     </section>
   );
