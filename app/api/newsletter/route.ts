@@ -1,6 +1,6 @@
-import { sendEmails } from "@/utils/emails/sendEmails";
-import { addToMailchimp } from "@/utils/mailchimp/addToMailchimp";
 import { NextResponse } from "next/server";
+import { addToMailchimp } from "@/utils/mailchimp/addToMailchimp";
+import { sendEmails } from "@/utils/emails/sendEmails";
 
 export const POST = async (req: Request) => {
   if (req.method !== "POST") {
@@ -10,13 +10,19 @@ export const POST = async (req: Request) => {
   const { email } = await req.json();
 
   try {
+    //Add user to MailChimp
+    const response = await addToMailchimp({ email });
+
+    const { mailchimpData, error } = await response.json();
+
+    if (error) {
+      return new NextResponse("User already exists", { status: 500 });
+    }
+
     // Send confirmation email to sender
     await sendEmails({ email });
 
-    //Add user to MailChimp
-    await addToMailchimp({ email });
-
-    return new NextResponse(JSON.stringify("Message sent successfully"), {
+    return new NextResponse(JSON.stringify({ mailchimpData }), {
       status: 200,
     });
   } catch (error) {

@@ -66,9 +66,8 @@ const NewsletterForm = () => {
         throw new Error("Failed to submit form");
       }
 
-      // Optionally, handle response data here if needed
-      const responseData = await response.json();
-      console.log("Form submission successful:", responseData);
+      // const responseData = await response.json();
+      // console.log("Form submission successful:", responseData);
 
       // Notify user
       showToast({
@@ -82,7 +81,7 @@ const NewsletterForm = () => {
       console.error("Error submitting form:", error);
 
       showToast({
-        title: "Failed",
+        title: "Hiya!",
         description:
           "You're already a subscriber! You'd be hearing from us soon",
       });
