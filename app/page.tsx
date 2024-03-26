@@ -27,7 +27,7 @@ const getContent = async () => {
 
 export const metadata: Metadata = {
   title: "Arise Business Club",
-  description: "Welcome to Arise Business Club",
+  description: "Welcome to Arise Business Club webpage",
 };
 
 const HomePage = async () => {
