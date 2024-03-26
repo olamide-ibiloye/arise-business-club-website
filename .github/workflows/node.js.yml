@@ -4,12 +4,9 @@ on:
   push:
     branches: ["main"]
 
+  # rebuild site on Sanity publish
   repository_dispatch:
-    types:
-      - sanity
-
-  # pull_request:
-  # branches: [ "main" ]
+    types: [sanity]
 
 jobs:
   build:
