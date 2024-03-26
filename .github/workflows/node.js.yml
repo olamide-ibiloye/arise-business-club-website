@@ -3,6 +3,10 @@ name: Node.js CI
 on:
   push:
     branches: ["main"]
+
+  repository_dispatch:
+    types: [sanity_content_update]
+
   # pull_request:
   # branches: [ "main" ]
 
