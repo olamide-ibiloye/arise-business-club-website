@@ -87,7 +87,7 @@ const ContactForm = () => {
           ))}
 
           <div className="flex justify-center">
-            <button className="arise-button w-[200px]" disabled={isSubmitting}>
+            <button className="arise-button w-full" disabled={isSubmitting}>
               {isSubmitting ? "Submitting" : "Submit"}
             </button>
           </div>
