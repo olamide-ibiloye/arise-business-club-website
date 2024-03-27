@@ -4,7 +4,7 @@ const MenuButton = () => {
   return (
     <div className="flex-none lg:hidden">
       <label
-        htmlFor="my-drawer-3"
+        htmlFor="my-drawer"
         aria-label="open sidebar"
         className="btn btn-square btn-ghost"
       >
