@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -13,7 +14,8 @@
 
 @layer components {
   .max-container {
-    max-width: 1440px;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
   }
 }
@@ -21,6 +23,9 @@
 @layer utilities {
   .box {
     @apply lg:max-w-7xl lg:w-full px-5;
+  }
+  .card {
+    @apply bg-base-200 hover:bg-white shadow-none hover:shadow-3xl;
   }
 
   .arise-button {

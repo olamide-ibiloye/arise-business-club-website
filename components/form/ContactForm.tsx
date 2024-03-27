@@ -76,7 +76,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex justify-center shadow-3xl px-5 py-8 md:px-12 md:py-16 rounded">
+    <div className="flex justify-center bg-base-200 hover:bg-white shadow-none hover:shadow-3xl px-5 py-8 md:px-12 md:py-16 rounded">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
