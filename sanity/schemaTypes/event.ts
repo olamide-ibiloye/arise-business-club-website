@@ -12,6 +12,7 @@ export const event = defineType({
       options: {source: 'title', maxLength: 96},
     }),
     defineField({type: 'image', name: 'image'}),
+    defineField({type: 'string', name: 'altText'}),
     defineField({
       type: 'array',
       name: 'description',
