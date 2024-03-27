@@ -27,7 +27,7 @@ const Sidebar: React.FC<{ navs: NavItem[] }> = ({ navs }) => {
   return (
     <div className="drawer-side">
       <label
-        htmlFor="my-drawer-3"
+        htmlFor="my-drawer"
         aria-label="close sidebar"
         className="drawer-overlay"
       ></label>

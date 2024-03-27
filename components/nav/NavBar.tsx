@@ -22,7 +22,7 @@ const NavBar = () => {
   return (
     <div className={navbarClasses}>
       <header className="drawer lg:max-w-7xl lg:w-full">
-        <input id="drawer" type="checkbox" className="drawer-toggle" />
+        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
           <div className="w-full navbar px-0 mx-0">
