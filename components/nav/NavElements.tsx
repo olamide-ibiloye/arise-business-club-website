@@ -2,6 +2,7 @@ import React from "react";
 import NavButton from "./NavButton";
 import { ExpandMore } from "@mui/icons-material";
 import { NavItem } from "../constants/constants";
+import Link from "next/link";
 
 interface NavElementsProps {
   navs: NavItem[];
@@ -21,7 +22,7 @@ const NavElements: React.FC<NavElementsProps> = ({
       <ul className="menu menu-horizontal px-0 mx-0">
         {/* Navbar menu content here */}
         {navs.map((nav) => (
-          <React.Fragment key={nav.id}>
+          <Link key={nav.id} href={`#${nav.id}`}>
             {nav.subNavs && nav.subNavLinks ? (
               <div className="dropdown dropdown-hover">
                 <NavButton
@@ -46,11 +47,13 @@ const NavElements: React.FC<NavElementsProps> = ({
             ) : (
               <NavButton key={nav.id} name={nav.name} />
             )}
-          </React.Fragment>
+          </Link>
         ))}
       </ul>
 
-      <button className="arise-button ml-4">Get Started</button>
+      <Link className="arise-button ml-4" href="#contact-us">
+        Contact Us
+      </Link>
     </div>
   );
 };

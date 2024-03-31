@@ -9,7 +9,10 @@ const Description = ({ content }: DescriptionProps) => {
   const { header, body } = content;
 
   return (
-    <section className="bg-base-200 padding text-base-content box text-center">
+    <section
+      id="about-us"
+      className="bg-base-200 padding text-base-content box text-center"
+    >
       <h2 className="head-text">{header}</h2>
 
       <div className="prose text-center md:text-left info-text min-w-full">

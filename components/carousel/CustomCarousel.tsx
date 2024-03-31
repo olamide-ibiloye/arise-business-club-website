@@ -6,7 +6,7 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { urlFor } from "@/utils/sanity/client";
 
 interface CustomCarouselProps {
-  images: { image: any; altText: string }[];
+  images: { image: any; alt_text: string }[];
 }
 
 const CustomCarousel = ({ images }: CustomCarouselProps) => {
@@ -47,7 +47,7 @@ const CustomCarousel = ({ images }: CustomCarouselProps) => {
               <Image
                 key={index}
                 src={urlFor(asset).url()}
-                alt={image.altText}
+                alt={image.alt_text}
                 className="object-cover"
                 fill
                 priority

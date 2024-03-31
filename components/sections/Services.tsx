@@ -7,7 +7,7 @@ interface ServicesProps {
 
 const Services = ({ content }: ServicesProps) => {
   return (
-    <section className="padding-y box text-center">
+    <section id="our-services" className="padding-y box text-center">
       <h2 className="head-text">{content.header}</h2>
 
       <div className=" mb-12 text-center">

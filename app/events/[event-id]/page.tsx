@@ -1,12 +1,13 @@
+import SignUpForm from "@/components/form/SignUpForm";
+import { convertTimeDate } from "@/utils/convertTimeDate";
 import { client, urlFor } from "@/utils/sanity/client";
 import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";
-import Image from "next/image";
 import React from "react";
 
 export const metadata: Metadata = {
   title: "Events | Arise Business Club",
-  description: "register Now",
+  description: "Register Now",
 };
 
 export const revalidate = 300;
@@ -27,20 +28,52 @@ const EventTemplate: React.FC<{ params: ParamsProps }> = async ({ params }) => {
     description,
     image: image,
     altText,
+    datetime,
   } = await getContent(params["event-id"]);
 
+  const {
+    date,
+    time: { WAT, BST },
+  } = convertTimeDate(datetime);
+
   return (
-    <div>
-      <Image
-        src={urlFor(image).url()}
-        alt={altText}
-        className="object-cover h-auto w-auto"
-        height={500}
-        width={500}
-        priority
+    <div className="lg:max-w-7xl lg:w-full">
+      <div className="flex flex-col">
+        <h1 className="mt-20">
+          <span className="block text-base text-accent text-center font-semibold tracking-wide uppercase">
+            ARISE BUSINESS CLUB - EVENTS
+          </span>
+
+          <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
+            {title}
+          </span>
+        </h1>
+
+        <p className="text-center mt-3 py-5 text-lg">
+          <span> Sign up to join us on </span>
+          <span className="font-semibold">{date}</span>
+          {" at "}
+          <span className="font-semibold">{WAT}</span>
+          {` | `}
+          <span className="font-semibold">{BST}</span>.
+        </p>
+
+        <button className="arise-button w-[150px] mx-auto mt-4">
+          Sign up now
+        </button>
+      </div>
+
+      <div
+        style={{ backgroundImage: `url(${urlFor(image).url()})` }}
+        className="h-[300px] w-full bg-cover rounded-lg mt-8"
       />
-      <div className="prose text-center md:text-left info-text min-w-full">
-        <PortableText value={description} />
+
+      <div className="block md:grid md:grid-cols-2 items-center max-lg:px-4 py-[70px] gap-8">
+        <div className="prose  dark:prose-invert prose-headings:font-inter text-center md:text-left info-text min-w-full  max-lg:mb-8">
+          <PortableText value={description} />
+        </div>
+
+        <SignUpForm />
       </div>
     </div>
   );

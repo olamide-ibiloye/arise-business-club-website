@@ -22,7 +22,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       montserrat: ["Montserrat", "sans-serif"],
-      ptserif: ["PT Serif", "serif"],
+      inter: ["Inter", "sans-serif"],
     },
     fontSize: {
       xs: ["12px", "16px"],

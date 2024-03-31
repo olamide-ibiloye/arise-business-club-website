@@ -22,7 +22,7 @@ const Contact = ({ content }: ContactProps) => {
   const { header, subHeader, body, contacts } = content;
 
   return (
-    <section className="padding-y box">
+    <section id="contact-us" className="padding-y box">
       <div className="lg:grid lg:grid-cols-2 md:gap-x-16 lg:gap-x-8 justify-center items-center px-0 md:px-16 lg:px-0">
         <div className="flex items-start pt-5 pb-10 md:pt-10 flex-col gap-5">
           <h2 className="head-text text-center lg:text-left w-full">

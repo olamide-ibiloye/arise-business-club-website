@@ -18,7 +18,7 @@ const FooterNav: React.FC<FooterNavProps> = ({ title, children }) => {
   );
 };
 
-const services = navs.find((nav) => nav.id === "services");
+const services = navs.find((nav) => nav.id === "our-services");
 
 const Footer: React.FC = () => {
   return (
@@ -29,7 +29,11 @@ const Footer: React.FC = () => {
 
       <FooterNav title="Services">
         {services?.subNavLinks?.map((service) => (
-          <Link key={service.id} className="link link-hover" href="">
+          <Link
+            key={service.id}
+            className="link link-hover"
+            href="#our-services"
+          >
             {service.name}
           </Link>
         ))}
@@ -37,7 +41,7 @@ const Footer: React.FC = () => {
 
       <FooterNav title="Company">
         {navs.map((nav) => (
-          <Link key={nav.id} className="link link-hover" href="">
+          <Link key={nav.id} className="link link-hover" href={`#${nav.id}`}>
             {nav.name}
           </Link>
         ))}

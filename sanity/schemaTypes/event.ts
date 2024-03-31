@@ -11,12 +11,14 @@ export const event = defineType({
       name: 'slug',
       options: {source: 'title', maxLength: 96},
     }),
-    defineField({type: 'image', name: 'image'}),
-    defineField({type: 'string', name: 'altText'}),
+    defineField({type: 'image', name: 'image', title: 'Event Image'}),
+    defineField({type: 'string', name: 'altText', title: 'Image Description'}),
     defineField({
       type: 'array',
       name: 'description',
+      title: 'Event Description',
       of: [defineArrayMember({type: 'block'})],
     }),
+    defineField({type: 'datetime', name: 'datetime', title: 'Event Date'}),
   ],
 })

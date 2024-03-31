@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface JoinNowProps {
@@ -23,7 +24,9 @@ const JoinNow = ({ content }: JoinNowProps) => {
 
         <p className="info-text">{body}</p>
 
-        <button className="arise-button w-[200px] my-10">{buttonName}</button>
+        <Link className="arise-button w-[200px] my-10" href="#contact-us">
+          {buttonName}
+        </Link>
       </div>
     </section>
   );

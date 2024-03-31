@@ -66,8 +66,8 @@ export interface NavItem {
 export const navs: NavItem[] = [
   { id: "about-us", name: "About Us", subNavs: false },
   {
-    id: "services",
-    name: "Services",
+    id: "our-services",
+    name: "Our Services",
     subNavs: true,
     subNavLinks: [
       {
@@ -81,32 +81,12 @@ export const navs: NavItem[] = [
       },
     ],
   },
-  { id: "testimonials", name: "Testimonials", subNavs: false },
+  // { id: "testimonials", name: "Testimonials", subNavs: false },
   { id: "news", name: "News", subNavs: false },
 ];
 
-export const formFields = [
-  {
-    type: "firstName",
-    label: "First Name*",
-    placeholder: "first name",
-  },
-  {
-    type: "lastName",
-    label: "Last Name*",
-    placeholder: "last name",
-  },
-  {
-    type: "email",
-    label: "Email*",
-    placeholder: "email",
-  },
-  {
-    type: "message",
-    label: "Message*",
-    placeholder: "type your message",
-  },
-];
+export const disclaimerMessage =
+  "By submitting this form, you agree to our data storage terms. Your personal information will be stored securely and used solely for the purpose of communication.";
 
 export const socials = [
   {

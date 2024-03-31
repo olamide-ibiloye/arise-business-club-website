@@ -6,7 +6,7 @@ interface NewsProps {
 
 const News = ({ content }: NewsProps) => {
   return (
-    <section className="padding-y box text-center">
+    <section id="news" className="padding-y box text-center">
       <h2 className="head-text">{content.header}</h2>
 
       <div className="text-center">

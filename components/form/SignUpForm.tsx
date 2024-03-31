@@ -6,8 +6,9 @@ import { z } from "zod";
 import { Form } from "../ui";
 import { useToast } from "../ui/use-toast";
 import Field from "./Field";
+import { disclaimerMessage } from "../constants/constants";
 
-const contactFormFields = [
+const SignUpFormFields = [
   {
     type: "firstName",
     label: "First Name*",
@@ -19,16 +20,28 @@ const contactFormFields = [
     placeholder: "last name",
   },
   {
-    type: "email",
-    label: "Email*",
-    placeholder: "email",
+    type: "jobTitle",
+    label: "Job Title",
+    placeholder: "last name",
   },
   {
-    type: "message",
-    label: "Message*",
-    placeholder: "type your message",
+    type: "phone",
+    label: "Phone",
+    placeholder: "phone number",
   },
 ];
+
+const emailField = {
+  type: "email",
+  label: "Email*",
+  placeholder: "email address",
+};
+
+const messageField = {
+  type: "message",
+  label: "What motivated you to sign up?",
+  placeholder: "type your message",
+};
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -37,14 +50,13 @@ const formSchema = z.object({
   lastName: z.string().min(2, {
     message: "Last name cannot be empty.",
   }),
+  jobTitle: z.string().optional(),
+  phone: z.string().optional(),
   email: z.string().email({ message: "Invalid email address." }),
-  message: z
-    .string()
-    .min(10, { message: "Message cannot be less than 10 characters." })
-    .max(1000, { message: "Message cannot be more than 1000 characters." }),
+  message: z.string().optional(),
 });
 
-const ContactForm = () => {
+const SignUpForm = () => {
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -52,6 +64,8 @@ const ContactForm = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
+      jobTitle: "",
+      phone: "",
       email: "",
       message: "",
     },
@@ -62,21 +76,27 @@ const ContactForm = () => {
     formState: { isSubmitting },
   } = form;
 
-  const showToast = () => {
+  const showToast = ({
+    title,
+    description,
+  }: {
+    title: string;
+    description: string;
+  }) => {
     toast({
-      title: "Success",
-      description: "Enquiry has been sent successfully!",
+      title,
+      description,
     });
   };
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
+      const response = await fetch("/api/sign-up", {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...values, type: "contact" }),
+        body: JSON.stringify({ ...values, type: "sign-up" }),
       });
 
       if (!response.ok) {
@@ -88,35 +108,51 @@ const ContactForm = () => {
       console.log("Form submission successful:", responseData);
 
       // Notify user
-      showToast();
+      showToast({
+        title: "Success",
+        description: "You're In! Thanks for registering.",
+      });
 
       // Reset form fields
       reset();
     } catch (error) {
       console.error("Error submitting form:", error);
+
+      showToast({
+        title: "Hiya!",
+        description: "You're already registered!",
+      });
     }
   };
 
   return (
-    <div className="flex justify-center bg-base-200 hover:bg-white shadow-none hover:shadow-3xl px-5 py-8 md:px-12 md:py-16 rounded border">
+    <div className="flex justify-center bg-base-200 hover:bg-white shadow-none hover:shadow-3xl px-5 py-8 lg:px-12 md:py-16 rounded mx-auto border">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-5 w-full md:w-[600px]"
+          className="space-y-5 w-full"
         >
-          {contactFormFields.map((entry) => (
-            <Field key={entry.label} entry={entry} />
-          ))}
+          <div className="block max-md:space-y-5 lg:grid lg:grid-cols-2 gap-4 items-center">
+            {SignUpFormFields.map((entry) => (
+              <Field key={entry.label} entry={entry} />
+            ))}
+          </div>
+
+          <Field entry={emailField} />
+
+          <Field entry={messageField} />
 
           <div className="flex justify-center">
             <button className="arise-button w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting" : "Submit"}
+              {isSubmitting ? "Registering" : "Register"}
             </button>
           </div>
+
+          <p className="text-xs text-gray-600">{disclaimerMessage}</p>
         </form>
       </Form>
     </div>
   );
 };
 
-export default ContactForm;
+export default SignUpForm;
