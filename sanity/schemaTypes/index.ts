@@ -7,6 +7,7 @@ import {our_services} from './components/our-services'
 import {welcome} from './components/welcome'
 import {event} from './event'
 import {homepage} from './homepage'
+import {eventspage} from './eventspage'
 import {news} from './components/news'
 import {contact} from './components/contact'
 import {contact_us} from './components/contact-us'
@@ -14,6 +15,7 @@ import {join_now} from './components/join-now'
 
 export const schemaTypes = [
   homepage,
+  eventspage,
   event,
   carousel,
   carousel_image,

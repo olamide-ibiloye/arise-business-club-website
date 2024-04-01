@@ -1,9 +1,9 @@
 import SignUpForm from "@/components/form/SignUpForm";
-import { convertTimeDate } from "@/utils/convertTimeDate";
 import { client, urlFor } from "@/utils/sanity/client";
 import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";
 import React from "react";
+import EventDateTime from "../EventDateTime";
 
 export const metadata: Metadata = {
   title: "Events | Arise Business Club",
@@ -27,14 +27,8 @@ const EventTemplate: React.FC<{ params: ParamsProps }> = async ({ params }) => {
     title,
     description,
     image: image,
-    altText,
     datetime,
   } = await getContent(params["event-id"]);
-
-  const {
-    date,
-    time: { WAT, BST },
-  } = convertTimeDate(datetime);
 
   return (
     <div className="lg:max-w-7xl lg:w-full">
@@ -49,14 +43,7 @@ const EventTemplate: React.FC<{ params: ParamsProps }> = async ({ params }) => {
           </span>
         </h1>
 
-        <p className="text-center mt-3 py-5 text-lg">
-          <span> Sign up to join us on </span>
-          <span className="font-semibold">{date}</span>
-          {" at "}
-          <span className="font-semibold">{WAT}</span>
-          {` | `}
-          <span className="font-semibold">{BST}</span>.
-        </p>
+        <EventDateTime datetime={datetime} />
 
         <button className="arise-button w-[150px] mx-auto mt-4">
           Sign up now
@@ -65,7 +52,7 @@ const EventTemplate: React.FC<{ params: ParamsProps }> = async ({ params }) => {
 
       <div
         style={{ backgroundImage: `url(${urlFor(image).url()})` }}
-        className="h-[300px] w-full bg-cover rounded-lg mt-8"
+        className="h-[300px] w-full bg-cover bg-center rounded-lg mt-8"
       />
 
       <div className="block md:grid md:grid-cols-2 items-center max-lg:px-4 py-[70px] gap-8">

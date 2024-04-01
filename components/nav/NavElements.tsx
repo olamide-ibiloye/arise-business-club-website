@@ -22,7 +22,10 @@ const NavElements: React.FC<NavElementsProps> = ({
       <ul className="menu menu-horizontal px-0 mx-0">
         {/* Navbar menu content here */}
         {navs.map((nav) => (
-          <Link key={nav.id} href={`#${nav.id}`}>
+          <Link
+            key={nav.id}
+            href={nav.id === "events" ? `/${nav.id}` : `/#${nav.id}`}
+          >
             {nav.subNavs && nav.subNavLinks ? (
               <div className="dropdown dropdown-hover">
                 <NavButton

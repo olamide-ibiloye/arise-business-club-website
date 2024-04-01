@@ -81,6 +81,7 @@ export const navs: NavItem[] = [
       },
     ],
   },
+  { id: "events", name: "Events", subNavs: false },
   // { id: "testimonials", name: "Testimonials", subNavs: false },
   { id: "news", name: "News", subNavs: false },
 ];
