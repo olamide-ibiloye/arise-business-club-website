@@ -4,6 +4,7 @@ import Notification from "./Notification";
 import Confirmation from "./Confirmation";
 import Subscription from "./Subscription";
 import { NextResponse } from "next/server";
+import SignUp from "./SignUp";
 
 export interface ContactFormData {
   firstName?: string;
@@ -57,6 +58,19 @@ const sendEmails = async (values: ContactFormData) => {
       return new NextResponse(
         JSON.stringify({ notificationData, confirmationData }),
       );
+    } else if (values.type === "sign-up") {
+      const { email } = values;
+
+      const signupMailOptions = {
+        from: SENDER,
+        to: email,
+        subject: "Thank you for signing up",
+        react: React.createElement(SignUp),
+      };
+
+      const subscriptionData = await resend.emails.send(signupMailOptions);
+
+      return new NextResponse(JSON.stringify({ subscriptionData }));
     } else {
       const { email } = values;
 

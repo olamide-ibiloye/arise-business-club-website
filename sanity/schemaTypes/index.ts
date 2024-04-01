@@ -12,10 +12,12 @@ import {news} from './components/news'
 import {contact} from './components/contact'
 import {contact_us} from './components/contact-us'
 import {join_now} from './components/join-now'
+import {email_templates} from './email-templates'
 
 export const schemaTypes = [
   homepage,
   eventspage,
+  email_templates,
   event,
   carousel,
   carousel_image,

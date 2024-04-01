@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { updateMailchimp } from "@/utils/mailchimp/updateMailchimp";
+import { sendEmails } from "@/utils/emails/sendEmails";
 
 export const PUT = async (req: Request) => {
   if (req.method !== "PUT") {
@@ -13,6 +14,7 @@ export const PUT = async (req: Request) => {
     phone: PHONE,
     message: MESSAGE,
     email,
+    type,
   } = await req.json();
 
   const merge_fields = {
@@ -35,6 +37,9 @@ export const PUT = async (req: Request) => {
     if (error) {
       return new NextResponse("You've already signed up!", { status: 500 });
     }
+
+    // Send confirmation email to sender
+    await sendEmails({ email, type });
 
     return new NextResponse(JSON.stringify({ mailchimpData }), {
       status: 200,
