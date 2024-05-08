@@ -16,7 +16,7 @@ export interface ContactFormData {
 
 const CONTACT_EMAIL = "contact@arisebusinessclub.com";
 const SENDER = `"Arise Business Club" <${CONTACT_EMAIL}>`;
-const NOFICATION_RECIPIENT = "info@arisebusinessclub.com";
+const NOFICATION_RECIPIENT = "iyanuloluwao@gmail.com"; //"info@arisebusinessclub.com"
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
