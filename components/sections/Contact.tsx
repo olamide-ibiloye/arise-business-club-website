@@ -34,14 +34,20 @@ const Contact = ({ content }: ContactProps) => {
 
           <p className="info-text pb-5">{body}</p>
 
-          {contacts.map((contact: ContactCardProps) => (
-            <ContactCard
-              key={contact.name}
-              value={contact.value}
-              name={contact.name}
-              icon={getIcon(contact.icon)}
-            />
-          ))}
+          {contacts.map((contact: ContactCardProps) => {
+            if (contact.name === "Phone") {
+              return;
+            }
+
+            return (
+              <ContactCard
+                key={contact.name}
+                value={contact.value}
+                name={contact.name}
+                icon={getIcon(contact.icon)}
+              />
+            );
+          })}
         </div>
 
         <ContactForm />
