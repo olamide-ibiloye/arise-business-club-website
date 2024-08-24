@@ -21,6 +21,8 @@ interface ContactProps {
 const Contact = ({ content }: ContactProps) => {
   const { header, subHeader, body, contacts } = content;
 
+  const emailDetails = contacts.find((contact) => contact.name === "Email");
+
   return (
     <section id="contact-us" className="padding-y box">
       <div className="lg:grid lg:grid-cols-2 md:gap-x-16 lg:gap-x-8 justify-center items-center px-0 md:px-16 lg:px-0">
@@ -34,20 +36,23 @@ const Contact = ({ content }: ContactProps) => {
 
           <p className="info-text pb-5">{body}</p>
 
-          {contacts.map((contact: ContactCardProps) => {
-            if (contact.name === "Phone") {
-              return;
-            }
+          {/* {contacts.map((contact: ContactCardProps) => (
+            <ContactCard
+              key={contact.name}
+              value={contact.value}
+              name={contact.name}
+              icon={getIcon(contact.icon)}
+            />
+          ))} */}
 
-            return (
-              <ContactCard
-                key={contact.name}
-                value={contact.value}
-                name={contact.name}
-                icon={getIcon(contact.icon)}
-              />
-            );
-          })}
+          {emailDetails && (
+            <ContactCard
+              key={emailDetails.name}
+              value={emailDetails.value}
+              name={emailDetails.name}
+              icon={getIcon(emailDetails.icon)}
+            />
+          )}
         </div>
 
         <ContactForm />
